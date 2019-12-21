@@ -98,11 +98,11 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _CamouflageMode: 1
-    - _CamouflageValue: 0
+    - _CamouflageValue: 1
     - _Cutoff: 0.5
     - _DepthFadeDistance: 0.4
     - _DetailNormalMapScale: 1
-    - _DistortionAmount: 0.01662117
+    - _DistortionAmount: 0.0101
     - _DstBlend: 0
     - _EmissiveValue: 0
     - _Float0: 0.2
