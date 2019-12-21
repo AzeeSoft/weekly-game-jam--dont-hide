@@ -9,10 +9,15 @@ public class CamouflageModeController : MonoBehaviour
     public float timeOfLastCamouflage { get; private set; } = 0;
     public float timeSinceLastCamouflage => Time.time - timeOfLastCamouflage;
 
+    public GameObject avatarRoot;
+
+    private List<Material> materials = new List<Material>();
+
     // Start is called before the first frame update
     void Start()
     {
         UpdateTimeOfLastCamouflage();
+        FindMaterials();
     }
 
     // Update is called once per frame
@@ -37,5 +42,14 @@ public class CamouflageModeController : MonoBehaviour
     private void UpdateTimeOfLastCamouflage()
     {
         timeOfLastCamouflage = Time.time;
+    }
+
+    private void FindMaterials()
+    {
+        materials.Clear();
+        foreach (var renderer in GetComponentsInChildren<Renderer>())
+        {
+            materials.AddRange(renderer.materials);
+        }
     }
 }
