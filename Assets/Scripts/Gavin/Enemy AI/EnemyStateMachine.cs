@@ -33,16 +33,19 @@ public class EnemyStateMachine : MonoBehaviour
         switch (state)
         {
             case StateType.Patrol:
-
+                enemy.Patrolling();
+                fov.FindPlayer();
                 break;
             case StateType.Shoot:
                 enemy.Shooting();
                 break;
             case StateType.Chase:
                 enemy.Chasing();
+                fov.FindPlayer();
                 break;
             case StateType.LostPlayer:
                 enemy.playerSearch();
+                fov.FindPlayer();
                 break;
         }
     }
@@ -62,7 +65,7 @@ public class EnemyStateMachine : MonoBehaviour
                 enemy.isConfused = false;
                 break;
             case StateType.Shoot:
-
+                enemy.nav.isStopped = true;
                 break;
             case StateType.Chase:
 

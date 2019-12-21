@@ -60,7 +60,7 @@ public class FieldOfView : MonoBehaviour
             Transform target = targetInRange[0].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
 
-            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            if (isTargetInFOV(dirToTarget))
             {
                 float disToTarget = Vector3.Distance(transform.position, target.position);
 
@@ -70,6 +70,18 @@ public class FieldOfView : MonoBehaviour
                     visibleTargets.Add(target);
                 }
             }
+        }
+    }
+
+    public bool isTargetInFOV(Vector3 dirToTarget)
+    {
+        if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
