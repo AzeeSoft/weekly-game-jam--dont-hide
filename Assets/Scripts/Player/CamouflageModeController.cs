@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -10,8 +11,11 @@ public class CamouflageModeController : MonoBehaviour
     public float timeSinceLastCamouflage => Time.time - timeOfLastCamouflage;
 
     public GameObject avatarRoot;
+    public float camouflageTransitionDuration = 2f;
+    [Range(0, 1)] public float camouflageValue = 0;
 
     private List<Material> materials = new List<Material>();
+    private Tween camouflageTransitionTween;
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +36,15 @@ public class CamouflageModeController : MonoBehaviour
         {
             UpdateTimeOfLastCamouflage();
         }
+
+        UpdateCamouflageValue();
     }
 
     public void ToggleCamouflage()
     {
         isCamouflaged = !isCamouflaged;
+
+        AnimateCamouflageValue(isCamouflaged ? 1 : 0, camouflageTransitionDuration);
     }
 
     private void UpdateTimeOfLastCamouflage()
@@ -47,9 +55,28 @@ public class CamouflageModeController : MonoBehaviour
     private void FindMaterials()
     {
         materials.Clear();
-        foreach (var renderer in GetComponentsInChildren<Renderer>())
+        foreach (var renderer in avatarRoot.GetComponentsInChildren<Renderer>())
         {
             materials.AddRange(renderer.materials);
+        }
+    }
+
+    private void AnimateCamouflageValue(float endValue, float duration)
+    {
+        camouflageTransitionTween?.Kill();
+
+        camouflageTransitionTween = DOTween.To(() => camouflageValue, value =>
+        {
+            camouflageValue = value;
+        }, endValue, duration);
+        camouflageTransitionTween.Play();
+    }
+
+    private void UpdateCamouflageValue()
+    {
+        foreach (var material in materials)
+        {
+            material.SetFloat("_CamouflageValue", camouflageValue);
         }
     }
 }

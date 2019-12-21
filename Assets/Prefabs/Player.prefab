@@ -999,7 +999,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4e67a5bf1d91b44b2b9cfbabbea5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avatarRoot: {fileID: 0}
+  avatarRoot: {fileID: 7415780798373814325}
+  camouflageTransitionDuration: 2
+  camouflageValue: 0
 --- !u!1 &5419005010019648286
 GameObject:
   m_ObjectHideFlags: 0
