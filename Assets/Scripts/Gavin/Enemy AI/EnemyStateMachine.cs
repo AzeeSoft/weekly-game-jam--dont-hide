@@ -68,10 +68,10 @@ public class EnemyStateMachine : MonoBehaviour
                 enemy.nav.isStopped = true;
                 break;
             case StateType.Chase:
-
+                enemy.fireTime = 0.0f;
                 break;
             case StateType.LostPlayer:
-
+                enemy.fireTime = 0.0f;
                 break;
         }
     }

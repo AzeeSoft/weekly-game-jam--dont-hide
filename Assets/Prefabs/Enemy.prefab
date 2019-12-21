@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 138407074825185214}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,9 +157,14 @@ MonoBehaviour:
   nav: {fileID: 0}
   searchingStop: 0
   isConfused: 0
+  fireTime: 0
   searchTime: 0
   searchBuffer: 5
+  shootTime: 0
+  shootBuffer: 0.5
   navPoints: []
+  maxBulletSpread: 6
+  timeToMaxSpread: 1
 --- !u!114 &138407074825185214
 MonoBehaviour:
   m_ObjectHideFlags: 0

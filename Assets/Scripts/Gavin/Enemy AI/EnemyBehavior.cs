@@ -11,14 +11,22 @@ public class EnemyBehavior : MonoBehaviour
 
     Vector3 lastPlayerPosition;
     int currentPoint = 0;
+    private ObjectPooler.Key enemyProjectileKey = ObjectPooler.Key.EnemyProjectile;
 
     [HideInInspector] public bool searchingStop = false;
     [HideInInspector] public bool isConfused = false;
+     public float fireTime = 0.0f;
 
     [HideInInspector] public float searchTime;
     public float searchBuffer;
 
+    [HideInInspector] public float shootTime;
+    public float shootBuffer;
+
     public Transform[] navPoints;
+    public float maxBulletSpread;
+    public float timeToMaxSpread;
+
 
     void Awake()
     {
@@ -70,7 +78,32 @@ public class EnemyBehavior : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(fov.player.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 2f * Time.deltaTime);
 
-        Debug.Log("Shooting player");
+        Shoot();
+    }
+
+    void Shoot()
+    {
+        if (Time.time - shootTime >= shootBuffer)
+        {
+            GameObject pooledObj = ObjectPooler.GetPooler(enemyProjectileKey).GetPooledObject();
+
+            Vector3 targetDirection = fov.player.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+
+            float currentSpread = Mathf.Lerp(0.0f, maxBulletSpread, fireTime / timeToMaxSpread);
+
+            targetRotation = Quaternion.RotateTowards(targetRotation, Random.rotation, Random.Range(0, currentSpread));
+
+
+            pooledObj.transform.position = transform.position;
+            pooledObj.transform.rotation = targetRotation;
+
+            pooledObj.SetActive(true);
+
+            shootTime = Time.time;
+            fireTime += Time.deltaTime * 5;
+        }
+        
     }
 
     public void Chasing()
