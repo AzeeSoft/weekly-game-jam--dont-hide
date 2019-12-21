@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
 {
+    public Health health { get; private set; }
+
     public Transform playerTarget;
+
+    void Awake()
+    {
+        health = GetComponent<Health>();
+    }
 
     // Start is called before the first frame update
     void Start()
