@@ -849,6 +849,7 @@ GameObject:
   - component: {fileID: 5419005010029955384}
   - component: {fileID: 5915609261164691468}
   - component: {fileID: 3969074201850763873}
+  - component: {fileID: 2710618997757236802}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -965,6 +966,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a9aff5e69523541ba9e737b0a4aaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayBeforeHealthRegeneration: 3
+  healthRegenerationSpeed: 5
   playerTarget: {fileID: 5615605133238313095}
 --- !u!114 &3969074201850763873
 MonoBehaviour:
@@ -978,12 +981,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46da9763d9f218e47873b883aabdc7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
   currentHealth: 0
   startWithMaxHealth: 1
   OnHealthDepleted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2710618997757236802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5419005010019648122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4e67a5bf1d91b44b2b9cfbabbea5f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeOfLastCamouflage: 0
 --- !u!1 &5419005010019648286
 GameObject:
   m_ObjectHideFlags: 0
