@@ -115,6 +115,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossinessMultiply: 0.8
     - _GlossyReflections: 1
+    - _InvertTransition: 0
     - _Metallic: 0
     - _MetallicMultiply: 0
     - _Mode: 0

@@ -1001,6 +1001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatarRoot: {fileID: 7415780798373814325}
   camouflageTransitionDuration: 2
+  camouflageModePostProcessingProfile: {fileID: 11400000, guid: 4145bbe31d4691f4ea193d51ca5fc422,
+    type: 2}
   camouflageValue: 0
 --- !u!1 &5419005010019648286
 GameObject:

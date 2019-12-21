@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine.PostFX;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class CamouflageModeController : MonoBehaviour
@@ -12,16 +14,23 @@ public class CamouflageModeController : MonoBehaviour
 
     public GameObject avatarRoot;
     public float camouflageTransitionDuration = 2f;
+    public PostProcessProfile camouflageModePostProcessingProfile;
     [Range(0, 1)] public float camouflageValue = 0;
 
     private List<Material> materials = new List<Material>();
     private Tween camouflageTransitionTween;
+    private CinemachinePostProcessing thirdPersonPostProcessing;
+    private PostProcessProfile originalPostProcessingProfile;
 
     // Start is called before the first frame update
     void Start()
     {
         UpdateTimeOfLastCamouflage();
         FindMaterials();
+        thirdPersonPostProcessing =
+            CinemachineCameraManager.Instance.GetCameraByState(CinemachineCameraManager.CinemachineCameraState
+                .ThirdPerson).GetComponent<CinemachinePostProcessing>();
+        originalPostProcessingProfile = thirdPersonPostProcessing.m_Profile;
     }
 
     // Update is called once per frame
@@ -45,6 +54,7 @@ public class CamouflageModeController : MonoBehaviour
         isCamouflaged = !isCamouflaged;
 
         AnimateCamouflageValue(isCamouflaged ? 1 : 0, camouflageTransitionDuration);
+        thirdPersonPostProcessing.m_Profile = isCamouflaged ? camouflageModePostProcessingProfile : originalPostProcessingProfile;
     }
 
     private void UpdateTimeOfLastCamouflage()
