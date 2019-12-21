@@ -5,6 +5,7 @@ using UnityEngine;
 public class FieldOfView : MonoBehaviour
 {
     public float rangeRadius;
+    public float chaseRadius;
     [Range(0, 360)] public float viewAngle;
 
     [HideInInspector] public LayerMask playerMask;
@@ -13,16 +14,23 @@ public class FieldOfView : MonoBehaviour
 
     public Transform player;
 
+    EnemyStateMachine stateMachine;
+
     void Awake()
     {
         playerMask = LayerMask.GetMask("Player");
         obstacleMask = LayerMask.GetMask("Obstacle");
+
+        stateMachine = GetComponent<EnemyStateMachine>();
     }
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.magenta;
+        Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, rangeRadius);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, chaseRadius);
 
         Vector3 viewAngleA = DirFromAngle(-viewAngle / 2, false);
         Vector3 viewAngleB = DirFromAngle(viewAngle / 2, false);
@@ -58,7 +66,7 @@ public class FieldOfView : MonoBehaviour
 
                 if (!(Physics.Raycast(transform.position, dirToTarget, disToTarget, obstacleMask)))
                 {
-                    //Switch to chase or shoot. 
+                    stateMachine.switchState(EnemyStateMachine.StateType.Shoot);
                     visibleTargets.Add(target);
                 }
             }
