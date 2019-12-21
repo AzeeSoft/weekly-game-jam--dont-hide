@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: ef65bb02a522e7345a4dfb5fd541c3ed
 ShaderImporter:
   externalObjects: {}
-  defaultTextures: []
+  defaultTextures:
+  - _CamouflageTransitionTexture: {fileID: 2800000, guid: e24b2c680edaa90458d31f11544d79ca,
+      type: 3}
   nonModifiableTextures: []
   userData: 
   assetBundleName: 
