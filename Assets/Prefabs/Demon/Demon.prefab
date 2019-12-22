@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc10aee4f18343d4889c6a2e959591c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
   rotationSpeed: 1
   optimalYDistance: 1
   optimalYDistanceThreshold: 0.1
