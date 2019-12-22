@@ -11,18 +11,25 @@ public class DemonMovementController : MonoBehaviour
     public float optimalYDistanceThreshold = 0.5f;
     public float stopDistance = 5f;
 
-    private PlayerModel playerModel;
+    private DemonModel demonModel;
+    private PlayerModel playerModel => demonModel.playerModel;
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, stopDistance);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        playerModel = GameManager.Instance.playerModel;
+        demonModel = GetComponent<DemonModel>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerModel.camouflageModeController.isCamouflaged)
+        if (demonModel.canSeePlayer)
         {
             MoveTowardsPlayer();
         }

@@ -5,10 +5,11 @@ using UnityEngine;
 public class DemonModel : MonoBehaviour
 {
     public bool isVisible => avatar.activeSelf;
+    public bool canSeePlayer => isVisible;
+
+    public PlayerModel playerModel { get; private set; }
 
     public GameObject avatar;
-
-    private PlayerModel playerModel;
 
     // Start is called before the first frame update
     void Start()
