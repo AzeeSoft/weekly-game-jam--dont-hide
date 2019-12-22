@@ -65,6 +65,8 @@ public class EnemyStateMachine : MonoBehaviour
                 enemy.isConfused = false;
                 break;
             case StateType.Shoot:
+                enemy.searchingStop = false;
+                enemy.isConfused = false;
                 enemy.nav.isStopped = true;
                 break;
             case StateType.Chase:

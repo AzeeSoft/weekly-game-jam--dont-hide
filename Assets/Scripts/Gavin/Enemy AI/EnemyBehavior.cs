@@ -61,15 +61,19 @@ public class EnemyBehavior : MonoBehaviour
             return;
         }
 
-        Transform target = targetInRange[0].transform;
+        Transform target = fov.player;
         Vector3 dirToTarget = (target.position - transform.position).normalized;
         float disToTarget = Vector3.Distance(transform.position, target.position);
 
-        if (Physics.Raycast(transform.position, dirToTarget, disToTarget, fov.obstacleMask))
+        RaycastHit outRay;
+
+        if (Physics.Raycast(transform.position, dirToTarget, out outRay, disToTarget, fov.obstacleMask, QueryTriggerInteraction.Ignore))
         {
             nav.isStopped = false;
             lastPlayerPosition = fov.player.position;
             nav.SetDestination(lastPlayerPosition);
+
+            Debug.Log(outRay.collider.gameObject.name);
 
             stateMachine.switchState(EnemyStateMachine.StateType.LostPlayer);
             return;
@@ -118,7 +122,7 @@ public class EnemyBehavior : MonoBehaviour
             return;
         }
 
-        Transform target = targetInRange[0].transform;
+        Transform target = fov.player;
         Vector3 dirToTarget = (target.position - transform.position).normalized;
         float disToTarget = Vector3.Distance(transform.position, target.position);
 
