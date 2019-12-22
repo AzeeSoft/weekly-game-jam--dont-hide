@@ -46,4 +46,5 @@ MonoBehaviour:
   pooledAmount: 20
   willGrow: 1
   key: 0
-  pooledObject: {fileID: 0}
+  pooledObject: {fileID: 7213898658650248233, guid: 2dfc2591b94ab1543a3bbe696483927d,
+    type: 3}

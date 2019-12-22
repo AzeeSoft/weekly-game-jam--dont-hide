@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
+    public float normalizedHealth => HelperUtilities.Remap(currentHealth, 0, maxHealth, 0, 1);
 
     public bool startWithMaxHealth = true;
 
