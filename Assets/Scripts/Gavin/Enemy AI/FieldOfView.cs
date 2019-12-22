@@ -9,19 +9,24 @@ public class FieldOfView : MonoBehaviour
     [Range(0, 360)] public float viewAngle;
 
     [HideInInspector] public LayerMask playerMask;
-    [HideInInspector] public LayerMask obstacleMask;
+    public LayerMask obstacleMask;
     public List<Transform> visibleTargets = new List<Transform>();
 
-    public Transform player;
+    [HideInInspector] public Transform player;
 
     EnemyStateMachine stateMachine;
 
     void Awake()
     {
         playerMask = LayerMask.GetMask("Player");
-        obstacleMask = LayerMask.GetMask("Obstacle");
+        //obstacleMask = LayerMask.GetMask("Default");
 
         stateMachine = GetComponent<EnemyStateMachine>();
+    }
+
+    void Start()
+    {
+        player = GameManager.Instance.playerModel.playerTarget.transform;
     }
 
     void OnDrawGizmosSelected()
@@ -57,7 +62,7 @@ public class FieldOfView : MonoBehaviour
         }
         else
         {
-            Transform target = targetInRange[0].transform;
+            Transform target = player;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
 
             if (isTargetInFOV(dirToTarget))
