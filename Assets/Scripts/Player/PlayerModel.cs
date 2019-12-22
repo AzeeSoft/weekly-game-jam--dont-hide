@@ -6,6 +6,7 @@ public class PlayerModel : MonoBehaviour
 {
     public CamouflageModeController camouflageModeController { get; private set; }
     public Health health { get; private set; }
+    public bool isCamouflaged => camouflageModeController.isCamouflaged;
 
     public float delayBeforeHealthRegeneration = 3f;
     public float healthRegenerationSpeed = 1f;

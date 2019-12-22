@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player
-  m_Shader: {fileID: 4800000, guid: ef65bb02a522e7345a4dfb5fd541c3ed, type: 3}
-  m_ShaderKeywords: _CAMOUFLAGEMODE_ON
+  m_Name: Demon
+  m_Shader: {fileID: 4800000, guid: 2bfcc20a3a95e4947b09f0a68cd7d7ec, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -23,10 +23,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _CamouflageTransitionTexture:
-        m_Texture: {fileID: 2800000, guid: cd460ee4ac5c1e746b7a734cc7cc64dd, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -37,10 +33,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DistortionTexture:
-        m_Texture: {fileID: 2800000, guid: dd2fd2df93418444c8e280f1d34deeb5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -83,40 +75,22 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: d01457b88b1c5174ea4235d140b5fab8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureSample1:
-        m_Texture: {fileID: 2800000, guid: d01457b88b1c5174ea4235d140b5fab8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _CamouflageMode: 1
-    - _CamouflageValue: 0
+    - _CullMode: 0
     - _Cutoff: 0.5
-    - _DepthFadeDistance: 0.4
     - _DetailNormalMapScale: 1
-    - _DistortionAmount: 0.0633
     - _DstBlend: 0
     - _EmissiveValue: 0
-    - _Float0: 0.2
-    - _Float1: 0.292
-    - _Float2: 2.32
-    - _Float3: 1.99
-    - _FresnelPower: 2.01
-    - _FresnelScale: 1.99
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossinessMultiply: 0.8
+    - _Glossiness: 0.164
+    - _GlossinessMultiply: 0.25
     - _GlossyReflections: 1
-    - _InvertTransition: 0
-    - _Metallic: 0
+    - _Metallic: 0.664
     - _MetallicMultiply: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -124,14 +98,9 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TimeScale: 0.2
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.6040851, g: 0.6363767, b: 0.7075472, a: 1}
+    - _Color: {r: 0.12264148, g: 0.12264148, b: 0.12264148, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ForcefieldTint: {r: 0.3225347, g: 0.3812954, b: 0.4528302, a: 1}
-    - _IntersectionColor: {r: 0.4858491, g: 1, b: 0.955263, a: 0}
-    - _RimColor: {r: 0.2990388, g: 0.594023, b: 0.6037736, a: 1}
