@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusTracksTarget: 0
+  m_FocusTracksTarget: 1
   m_FocusOffset: 0
   m_Profile: {fileID: 0}
 --- !u!1 &7672768134334900931

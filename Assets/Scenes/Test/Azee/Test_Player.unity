@@ -707,6 +707,21 @@ PrefabInstance:
       propertyPath: camouflageTransitionDuration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7134265073697959445, guid: b4b1d00f378c25a4e8fe8dd4d3ee723d,
+        type: 3}
+      propertyPath: vignetteIntensity
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134265073697959445, guid: b4b1d00f378c25a4e8fe8dd4d3ee723d,
+        type: 3}
+      propertyPath: chromaticAbberationIntensity
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134265073697959445, guid: b4b1d00f378c25a4e8fe8dd4d3ee723d,
+        type: 3}
+      propertyPath: postExposure
+      value: -0.83
+      objectReference: {fileID: 0}
     - target: {fileID: 7481328336396533719, guid: b4b1d00f378c25a4e8fe8dd4d3ee723d,
         type: 3}
       propertyPath: m_Layer

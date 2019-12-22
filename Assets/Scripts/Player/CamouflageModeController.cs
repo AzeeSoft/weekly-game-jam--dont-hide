@@ -32,7 +32,7 @@ public class CamouflageModeController : MonoBehaviour
         thirdPersonPostProcessing =
             CinemachineCameraManager.Instance.GetCameraByState(CinemachineCameraManager.CinemachineCameraState
                 .ThirdPerson).GetComponent<CinemachinePostProcessing>();
-        originalPostProcessingProfile = thirdPersonPostProcessing.m_Profile;
+        originalPostProcessingProfile = thirdPersonPostProcessing.Profile;
     }
 
     // Update is called once per frame
@@ -55,8 +55,7 @@ public class CamouflageModeController : MonoBehaviour
     {
         isCamouflaged = !isCamouflaged;
 
-        AnimateCamouflageValue(isCamouflaged ? 1 : 0, camouflageEffectTransitionDuration);
-        thirdPersonPostProcessing.m_Profile = isCamouflaged ? camouflageModePostProcessingProfile : originalPostProcessingProfile;
+        AnimateCamouflageValue(isCamouflaged ? 1 : 0, camouflageEffectTransitionDuration, () => { });
     }
 
     private void UpdateTimeOfLastCamouflage()
@@ -73,14 +72,13 @@ public class CamouflageModeController : MonoBehaviour
         }
     }
 
-    private void AnimateCamouflageValue(float endValue, float duration)
+    private void AnimateCamouflageValue(float endValue, float duration, TweenCallback callback)
     {
         camouflageTransitionTween?.Kill();
 
-        camouflageTransitionTween = DOTween.To(() => camouflageValue, value =>
-        {
-            camouflageValue = value;
-        }, endValue, duration);
+        camouflageTransitionTween =
+            DOTween.To(() => camouflageValue, value => { camouflageValue = value; }, endValue, duration);
+        camouflageTransitionTween.onComplete += callback;
         camouflageTransitionTween.Play();
     }
 
@@ -89,6 +87,54 @@ public class CamouflageModeController : MonoBehaviour
         foreach (var material in materials)
         {
             material.SetFloat("_CamouflageValue", camouflageValue);
+        }
+
+        if (thirdPersonPostProcessing.Profile.HasSettings<ColorGrading>())
+        {
+            var colorGrading = thirdPersonPostProcessing.Profile.GetSetting<ColorGrading>();
+            var origColorGrading = originalPostProcessingProfile.GetSetting<ColorGrading>();
+            var camouflageColorGrading = camouflageModePostProcessingProfile.GetSetting<ColorGrading>();
+
+            float curPostExposure = HelperUtilities.Remap(camouflageValue, 0, 1, origColorGrading.postExposure,
+                camouflageColorGrading.postExposure);
+            colorGrading.postExposure.value = curPostExposure;
+
+            float curRedOutRedIn = HelperUtilities.Remap(camouflageValue, 0, 1, origColorGrading.mixerRedOutRedIn,
+                camouflageColorGrading.mixerRedOutRedIn);
+            colorGrading.mixerRedOutRedIn.value = curRedOutRedIn;
+            float curRedOutGreenIn = HelperUtilities.Remap(camouflageValue, 0, 1, origColorGrading.mixerRedOutGreenIn,
+                camouflageColorGrading.mixerRedOutGreenIn);
+            colorGrading.mixerRedOutGreenIn.value = curRedOutGreenIn;
+            float curRedOutBlueIn = HelperUtilities.Remap(camouflageValue, 0, 1, origColorGrading.mixerRedOutBlueIn,
+                camouflageColorGrading.mixerRedOutBlueIn);
+            colorGrading.mixerRedOutBlueIn.value = curRedOutBlueIn;
+        }
+
+        if (thirdPersonPostProcessing.Profile.HasSettings<Vignette>())
+        {
+            var vignette = thirdPersonPostProcessing.Profile.GetSetting<Vignette>();
+            var origVignette = originalPostProcessingProfile.GetSetting<Vignette>();
+            var camouflageVignette = camouflageModePostProcessingProfile.GetSetting<Vignette>();
+
+            float curVignetteIntensity = HelperUtilities.Remap(camouflageValue, 0, 1, origVignette.intensity,
+                camouflageVignette.intensity);
+            vignette.intensity.value = curVignetteIntensity;
+
+            float curVignetteSmoothness = HelperUtilities.Remap(camouflageValue, 0, 1, origVignette.smoothness,
+                camouflageVignette.smoothness);
+            vignette.smoothness.value = curVignetteSmoothness;
+        }
+
+        if (thirdPersonPostProcessing.Profile.HasSettings<ChromaticAberration>())
+        {
+            var chromaticAberration = thirdPersonPostProcessing.Profile.GetSetting<ChromaticAberration>();
+            var origChromaticAberration = originalPostProcessingProfile.GetSetting<ChromaticAberration>();
+            var camouflageChromaticAberration = camouflageModePostProcessingProfile.GetSetting<ChromaticAberration>();
+
+            float curChromaticAbberationIntensity =
+                HelperUtilities.Remap(camouflageValue, 0, 1, origChromaticAberration.intensity,
+                    camouflageChromaticAberration.intensity);
+            chromaticAberration.intensity.value = curChromaticAbberationIntensity;
         }
     }
 }
