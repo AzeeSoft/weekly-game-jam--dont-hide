@@ -6,6 +6,7 @@ public class DemonAttackController : MonoBehaviour
 {
     public float attackRadius = 3f;
     public float damageRate = 20f;
+    public LineRenderer attackLine;
 
     private DemonModel demonModel;
     private PlayerModel playerModel => demonModel.playerModel;
@@ -25,6 +26,8 @@ public class DemonAttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        attackLine.gameObject.SetActive(false);
+
         if (demonModel.canSeePlayer)
         {
             float distToPlayer = Vector3.Distance(transform.position, playerModel.playerTarget.position);
@@ -38,5 +41,8 @@ public class DemonAttackController : MonoBehaviour
     private void AttackPlayer()
     {
         playerModel.health.TakeDamage(damageRate * Time.deltaTime);
+
+        attackLine.SetPosition(1, attackLine.transform.InverseTransformPoint(playerModel.playerTarget.position));
+        attackLine.gameObject.SetActive(true);
     }
 }
