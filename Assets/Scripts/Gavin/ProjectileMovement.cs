@@ -16,7 +16,7 @@ public class ProjectileMovement : MonoBehaviour
     void OnEnable()
     {
         timer = Time.time;
-        rb.AddForce(transform.forward * bulletSpeed);
+        rb.velocity = transform.forward * bulletSpeed;
     }
 
     void OnTriggerEnter(Collider other)
