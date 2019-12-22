@@ -11,9 +11,11 @@ public class CamouflageModeController : MonoBehaviour
     public bool isCamouflaged { get; private set; } = false;
     public float timeOfLastCamouflage { get; private set; } = 0;
     public float timeSinceLastCamouflage => Time.time - timeOfLastCamouflage;
+    public float camouflageEffectRadius => camouflageValue * camouflageRadiusMultiplier;
 
     public GameObject avatarRoot;
-    public float camouflageTransitionDuration = 2f;
+    public float camouflageEffectTransitionDuration = 2f;
+    public float camouflageRadiusMultiplier = 10f;
     public PostProcessProfile camouflageModePostProcessingProfile;
     [Range(0, 1)] public float camouflageValue = 0;
 
@@ -53,7 +55,7 @@ public class CamouflageModeController : MonoBehaviour
     {
         isCamouflaged = !isCamouflaged;
 
-        AnimateCamouflageValue(isCamouflaged ? 1 : 0, camouflageTransitionDuration);
+        AnimateCamouflageValue(isCamouflaged ? 1 : 0, camouflageEffectTransitionDuration);
         thirdPersonPostProcessing.m_Profile = isCamouflaged ? camouflageModePostProcessingProfile : originalPostProcessingProfile;
     }
 
