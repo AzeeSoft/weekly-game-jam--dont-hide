@@ -621,26 +621,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 301520290600224577, guid: b4b1d00f378c25a4e8fe8dd4d3ee723d,
-        type: 3}
-      propertyPath: m_TransparentLayers.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 711739721213741925, guid: b4b1d00f378c25a4e8fe8dd4d3ee723d,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 984073406361657921, guid: b4b1d00f378c25a4e8fe8dd4d3ee723d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9a06ee9c3a5ea22448bcbe5b370b98e5, type: 2}
-    - target: {fileID: 984073406361872623, guid: b4b1d00f378c25a4e8fe8dd4d3ee723d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9a06ee9c3a5ea22448bcbe5b370b98e5, type: 2}
     - target: {fileID: 984073407725127296, guid: b4b1d00f378c25a4e8fe8dd4d3ee723d,
         type: 3}
       propertyPath: m_Name
@@ -720,11 +705,6 @@ PrefabInstance:
         type: 3}
       propertyPath: postExposure
       value: -0.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 7481328336396533719, guid: b4b1d00f378c25a4e8fe8dd4d3ee723d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7481328336396533743, guid: b4b1d00f378c25a4e8fe8dd4d3ee723d,
         type: 3}

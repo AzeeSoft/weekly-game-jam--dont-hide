@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 7672768134926291654}
   - component: {fileID: 1763487118722288968}
   - component: {fileID: 4957435998469183772}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: CinemachineBrain
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
