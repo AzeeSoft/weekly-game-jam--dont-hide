@@ -886,16 +886,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 813382153, guid: a562155a5418be343bb37d0fbcd06fb8, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278241998
+      objectReference: {fileID: 0}
     - target: {fileID: 138407074825185200, guid: a562155a5418be343bb37d0fbcd06fb8,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 217422437}
-    - target: {fileID: 138407074825185201, guid: a562155a5418be343bb37d0fbcd06fb8,
-        type: 3}
-      propertyPath: navPoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 138407074825185201, guid: a562155a5418be343bb37d0fbcd06fb8,
         type: 3}
       propertyPath: navPoints.Array.data[0]
@@ -916,11 +915,6 @@ PrefabInstance:
       propertyPath: navPoints.Array.data[3]
       value: 
       objectReference: {fileID: 1034978818}
-    - target: {fileID: 138407074825185203, guid: a562155a5418be343bb37d0fbcd06fb8,
-        type: 3}
-      propertyPath: m_AutoBraking
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 138407074825185207, guid: a562155a5418be343bb37d0fbcd06fb8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -980,11 +974,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 138407074825185215, guid: a562155a5418be343bb37d0fbcd06fb8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a562155a5418be343bb37d0fbcd06fb8, type: 3}

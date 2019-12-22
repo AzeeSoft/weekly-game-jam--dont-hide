@@ -8,6 +8,8 @@ public class EnemyBehavior : MonoBehaviour
     FieldOfView fov;
     EnemyStateMachine stateMachine;
     [HideInInspector] public NavMeshAgent nav;
+    public Animator textAnim;
+    public Canvas confusionCanvas;
 
     Vector3 lastPlayerPosition;
     int currentPoint = 0;
@@ -110,6 +112,17 @@ public class EnemyBehavior : MonoBehaviour
         
     }
 
+    public void CamoCheck()
+    {
+        if (GameManager.Instance.playerModel.isCamouflaged)
+        {
+            Debug.Log("Player disappeared?");
+            textAnim.SetBool("Confusion", false);
+            nav.isStopped = true;
+            stateMachine.switchState(EnemyStateMachine.StateType.LostPlayer);
+        }
+    }
+
     public void Chasing()
     {
         Collider[] targetInRange = Physics.OverlapSphere(transform.position, fov.chaseRadius, fov.playerMask);
@@ -150,12 +163,22 @@ public class EnemyBehavior : MonoBehaviour
             searchTime = Time.time;
             return;
         }
+        else if (GameManager.Instance.playerModel.isCamouflaged && !searchingStop)
+        {
+            searchingStop = true;
+            searchTime = Time.time;
+            return;
+        }
 
         if (searchingStop)
         {
             if (!isConfused)
             {
-                Debug.Log(gameObject.name + " is confused!");
+                Vector3 dirToTarget = (fov.player.position - transform.position).normalized;
+                dirToTarget.y = 0;
+                confusionCanvas.transform.forward = dirToTarget;
+
+                textAnim.SetBool("Confusion", true);
                 isConfused = true;
             }
             
