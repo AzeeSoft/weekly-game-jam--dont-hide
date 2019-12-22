@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class DemonModel : MonoBehaviour
 {
-    public bool isVisible => avatar.activeSelf;
+    public bool isVisible => skinnedMeshRenderer.enabled;
     public bool canSeePlayer => isVisible;
 
     public PlayerModel playerModel { get; private set; }
 
     public GameObject avatar;
 
+    private SkinnedMeshRenderer skinnedMeshRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
         playerModel = GameManager.Instance.playerModel;
+        skinnedMeshRenderer = avatar.GetComponentInChildren<SkinnedMeshRenderer>();
     }
 
     // Update is called once per frame
@@ -34,7 +37,8 @@ public class DemonModel : MonoBehaviour
     {
         if (!isVisible)
         {
-            avatar.SetActive(true);
+            //            avatar.SetActive(true);
+            skinnedMeshRenderer.enabled = true;
         }
     }
 
@@ -42,7 +46,8 @@ public class DemonModel : MonoBehaviour
     {
         if (isVisible)
         {
-            avatar.SetActive(false);
+//            avatar.SetActive(false);
+            skinnedMeshRenderer.enabled = false;
         }
     }
 }
