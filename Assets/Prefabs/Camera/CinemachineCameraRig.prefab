@@ -522,7 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FocusTracksTarget: 1
   m_FocusOffset: 0
-  m_Profile: {fileID: 0}
+  m_Profile: {fileID: 11400000, guid: 4e384ac27636d11418c6cc019d6a5737, type: 2}
 --- !u!1 &7672768134334900931
 GameObject:
   m_ObjectHideFlags: 0
