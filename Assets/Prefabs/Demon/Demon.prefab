@@ -40,6 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8632221701739700281}
+  - component: {fileID: 1957455399832032340}
+  - component: {fileID: 469575072251947158}
   m_Layer: 0
   m_Name: Demon
   m_TagString: Untagged
@@ -62,6 +64,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1957455399832032340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8632221701739700282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6af3f6bd2739c43bcc5322ad0dfef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &469575072251947158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8632221701739700282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc10aee4f18343d4889c6a2e959591c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  rotationSpeed: 1
+  optimalYDistance: 1
+  optimalYDistanceThreshold: 0.1
+  stopDistance: 4
 --- !u!1001 &8632221701791055950
 PrefabInstance:
   m_ObjectHideFlags: 0
