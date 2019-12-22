@@ -9,6 +9,7 @@ Shader "Custom/DemonAttackLine"
 		_Speed("Speed", Range( -3 , 3)) = 0.5
 		_MainTex("MainTex", 2D) = "white" {}
 		_VScale("V Scale", Float) = 3
+		_AlphaClip("Alpha Clip", Range( 0 , 1)) = 0.1
 	}
 	
 	SubShader
@@ -69,6 +70,7 @@ Shader "Custom/DemonAttackLine"
 			uniform sampler2D _MainTex;
 			uniform float _Speed;
 			uniform float _VScale;
+			uniform float _AlphaClip;
 			uniform float4 _Color;
 			
 			v2f vert ( appdata v )
@@ -105,7 +107,7 @@ Shader "Custom/DemonAttackLine"
 				float temp_output_50_0 = abs( ( i.ase_texcoord.xy.x + mulTime48 ) );
 				float4 appendResult53 = (float4(temp_output_50_0 , ( i.ase_texcoord.xy.y / _VScale ) , 0.0 , 0.0));
 				float4 tex2DNode52 = tex2D( _MainTex, appendResult53.xy );
-				clip( tex2DNode52.r - 0.1);
+				clip( tex2DNode52.r - _AlphaClip);
 				
 				
 				finalColor = ( tex2DNode52 * _Color );
@@ -120,7 +122,7 @@ Shader "Custom/DemonAttackLine"
 }
 /*ASEBEGIN
 Version=17000
-250;385;1152;665;3074.815;225.9176;3.246041;True;False
+275;201;1152;665;1893.736;-105.4276;1.994027;True;False
 Node;AmplifyShaderEditor.RangedFloatNode;49;-1189.829,285.8897;Float;False;Property;_Speed;Speed;2;0;Create;True;0;0;True;0;0.5;1.5;-3;3;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TexCoordVertexDataNode;17;-1145.295,63.63601;Float;True;0;2;0;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleTimeNode;48;-699.6657,334.4666;Float;True;1;0;FLOAT;1;False;1;FLOAT;0
@@ -129,9 +131,10 @@ Node;AmplifyShaderEditor.RangedFloatNode;55;-1361.682,567.795;Float;False;Proper
 Node;AmplifyShaderEditor.AbsOpNode;50;-428.0029,18.8761;Float;True;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleDivideOpNode;54;-1161.588,550.5455;Float;False;2;0;FLOAT;0;False;1;FLOAT;3;False;1;FLOAT;0
 Node;AmplifyShaderEditor.DynamicAppendNode;53;-988.0394,567.1551;Float;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
-Node;AmplifyShaderEditor.SamplerNode;52;-730.1632,725.8271;Float;True;Property;_MainTex;MainTex;3;0;Create;True;0;0;True;0;e28dc97a9541e3642a48c0e3886688c5;cd460ee4ac5c1e746b7a734cc7cc64dd;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ClipNode;58;-246.4122,612.632;Float;False;3;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT;0.1;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;1;-641.851,964.0938;Float;False;Property;_Color;Color;0;0;Create;True;0;0;True;0;0,0,0,0;0.5283019,0.1669633,0.1669633,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;52;-730.1632,725.8271;Float;True;Property;_MainTex;MainTex;3;0;Create;True;0;0;True;0;e28dc97a9541e3642a48c0e3886688c5;8276ff1f6d104ac4289bf3f0482df4f0;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.RangedFloatNode;59;-432.115,609.9164;Float;False;Property;_AlphaClip;Alpha Clip;5;0;Create;True;0;0;True;0;0.1;0.1;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.ColorNode;1;-641.851,964.0938;Float;False;Property;_Color;Color;0;0;Create;True;0;0;True;0;0,0,0,0;0.3018867,0.1034769,0.05838373,0.8078431;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ClipNode;58;-298.2571,716.3203;Float;False;3;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT;0.1;False;1;COLOR;0
 Node;AmplifyShaderEditor.SimpleRemainderNode;39;65.09646,88.89487;Float;True;2;0;FLOAT;0;False;1;FLOAT;2;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;57;-310.2264,882.6202;Float;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RangedFloatNode;42;-483.3275,257.9166;Float;False;Property;_Multiplier;Multiplier;1;0;Create;True;0;0;True;0;10;4.9;0;50;0;1;FLOAT;0
@@ -150,6 +153,7 @@ WireConnection;53;1;54;0
 WireConnection;52;1;53;0
 WireConnection;58;0;52;0
 WireConnection;58;1;52;1
+WireConnection;58;2;59;0
 WireConnection;39;0;37;0
 WireConnection;57;0;58;0
 WireConnection;57;1;1;0
@@ -159,4 +163,4 @@ WireConnection;37;1;42;0
 WireConnection;40;0;39;0
 WireConnection;0;0;57;0
 ASEEND*/
-//CHKSM=0BBFA8EF0362DBC1B5B583FF8C4BB46785CA2647
+//CHKSM=2B2260996CDA6A2B63A8906A098A24ABEFC450A4
