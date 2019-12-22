@@ -10,6 +10,7 @@ public class DemonModel : MonoBehaviour
     public PlayerModel playerModel { get; private set; }
 
     public GameObject avatar;
+    public GameObject minimapIcon;
 
     private SkinnedMeshRenderer skinnedMeshRenderer;
 
@@ -39,6 +40,7 @@ public class DemonModel : MonoBehaviour
         {
             //            avatar.SetActive(true);
             skinnedMeshRenderer.enabled = true;
+            minimapIcon.SetActive(true);
         }
     }
 
@@ -48,6 +50,7 @@ public class DemonModel : MonoBehaviour
         {
 //            avatar.SetActive(false);
             skinnedMeshRenderer.enabled = false;
+            minimapIcon.SetActive(false);
         }
     }
 }

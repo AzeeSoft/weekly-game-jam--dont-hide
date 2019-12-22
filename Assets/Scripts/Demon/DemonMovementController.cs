@@ -64,6 +64,11 @@ public class DemonMovementController : MonoBehaviour
 
         Quaternion targetRot =
             Quaternion.LookRotation((playerModel.playerTarget.position - transform.position).normalized);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
+        demonModel.avatar.transform.rotation = Quaternion.Lerp(demonModel.avatar.transform.rotation, targetRot,
+            rotationSpeed * Time.deltaTime);
+
+        var rotAngles = demonModel.minimapIcon.transform.rotation.eulerAngles;
+        rotAngles.y = demonModel.avatar.transform.rotation.eulerAngles.y;
+        demonModel.minimapIcon.transform.rotation = Quaternion.Euler(rotAngles);
     }
 }

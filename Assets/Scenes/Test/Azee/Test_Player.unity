@@ -760,6 +760,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 590084241920084432, guid: de6912e8ccaa7854cb1c444737c7c582,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -3.855146
+      objectReference: {fileID: 0}
+    - target: {fileID: 590084241920084432, guid: de6912e8ccaa7854cb1c444737c7c582,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.16786003
+      objectReference: {fileID: 0}
+    - target: {fileID: 590084241920084432, guid: de6912e8ccaa7854cb1c444737c7c582,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2.2751522
+      objectReference: {fileID: 0}
+    - target: {fileID: 590084241920084432, guid: de6912e8ccaa7854cb1c444737c7c582,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 2.39484
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632221700100507863, guid: de6912e8ccaa7854cb1c444737c7c582,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8632221701739700281, guid: de6912e8ccaa7854cb1c444737c7c582,
         type: 3}
       propertyPath: m_LocalPosition.x
