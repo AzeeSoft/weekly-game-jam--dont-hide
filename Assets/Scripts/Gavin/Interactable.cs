@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
     public string text;
 
     [HideInInspector] public bool canPress = false;
+    [HideInInspector] public bool isPressed = false;
 
     private void Awake()
     {
@@ -16,11 +17,16 @@ public class Interactable : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !isPressed)
         {
             textMesh.text = text;
             canPress = true;
         }
+    }
+
+    public void TurnOffText()
+    {
+        textMesh.text = "";
     }
 
     void OnTriggerExit(Collider other)
