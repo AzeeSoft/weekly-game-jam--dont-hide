@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8867275837648645052}
   - component: {fileID: 6330782403137100034}
   - component: {fileID: 8867275837648645054}
-  - component: {fileID: 811399928055543341}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -43,7 +42,8 @@ AudioSource:
   m_GameObject: {fileID: 8867275837648645053}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1295452668171226410, guid: 1865cfe84a5fbf147a635a93d1ebf062,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 5f71f8d3b912f4e469e1bf18602e7991, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
@@ -139,7 +139,8 @@ AudioSource:
   m_GameObject: {fileID: 8867275837648645053}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1116626670761015009, guid: 1865cfe84a5fbf147a635a93d1ebf062,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 8268e9d177cb7c7478d6a17872eab237, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
@@ -242,22 +243,3 @@ MonoBehaviour:
   advancedAudioSource: {fileID: 6330782403137100034}
   fadeIn: 3
   fadeOut: 3
---- !u!95 &811399928055543341
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8867275837648645053}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d22e7bc6cacc564ebbbf2720e8264f6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
