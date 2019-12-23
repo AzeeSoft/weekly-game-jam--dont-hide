@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float normalizedHealth => HelperUtilities.Remap(currentHealth, 0, maxHealth, 0, 1);
+    public float timeOfLastDamage { get; private set; } = 0;
+    public float timeSinceLastDamage => Time.time - timeOfLastDamage;
 
     public bool startWithMaxHealth = true;
 
@@ -42,5 +44,6 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         UpdateHealth(-damage);
+        timeOfLastDamage = Time.time;
     }
 }

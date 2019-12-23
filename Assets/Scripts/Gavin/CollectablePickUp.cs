@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollectablePickUp : MonoBehaviour
 {
+    public string collectableName;
+    
     public Interactable interactable;
 
     void Update()
@@ -14,6 +16,8 @@ public class CollectablePickUp : MonoBehaviour
             Debug.Log(gameObject.name + " has been collected!");
             interactable.isPressed = true;
             Destroy(gameObject);
+
+            GameManager.Instance.OnCollectiblePickedUp(this);
         }
     }
 }

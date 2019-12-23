@@ -25,6 +25,8 @@ public class LeverController : MonoBehaviour
 
             interactable.isPressed = true;
             interactable.TurnOffText();
+
+            GameManager.Instance.OnLeverUsed(this);
         }
     }
 }
