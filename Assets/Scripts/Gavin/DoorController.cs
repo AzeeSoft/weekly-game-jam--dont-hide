@@ -8,7 +8,6 @@ public class DoorController : MonoBehaviour
     public Material openMat;
     MeshRenderer mr;
 
-    public bool allLeversActive = false;
     public bool isOpen = false;
 
     void Awake()
