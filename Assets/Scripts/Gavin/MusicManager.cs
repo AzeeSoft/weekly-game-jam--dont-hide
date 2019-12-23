@@ -1,21 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class MusicManager : SingletonMonoBehaviour<MusicManager>
 {
-    public AudioClip basicClip;
-    public AudioClip advancedClip;
+    public AudioSource basicAudioSource;
+    public AudioSource advancedAudioSource;
 
-    AudioSource audSource;
+    public float fadeIn;
+    public float fadeOut;
 
     new void Awake()
     {
         base.Awake();
-
-        audSource = GetComponent<AudioSource>();
-        audSource.clip = basicClip;
-        audSource.Play();
+        
+        basicAudioSource.Play();
+        advancedAudioSource.Play();
     }
 
     private void Update()
@@ -24,17 +25,11 @@ public class MusicManager : SingletonMonoBehaviour<MusicManager>
         {
             if (!GameManager.Instance.playerModel.isCamouflaged)
             {
-                float timeToStart = audSource.time;
-                audSource.clip = advancedClip;
-                audSource.time = timeToStart;
-                audSource.Play();
+                advancedAudioSource.DOFade(basicAudioSource.volume - 0.2f, fadeIn);
             }
             else
             {
-                float timeToStart = audSource.time;
-                audSource.clip = basicClip;
-                audSource.time = timeToStart;
-                audSource.Play();
+                advancedAudioSource.DOFade(0, fadeOut);
             }
         }
     }
