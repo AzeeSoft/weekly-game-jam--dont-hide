@@ -9,6 +9,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public PlayerModel playerModel;
 
     private HashSet<LeverController> usedLeversHash = new HashSet<LeverController>();
+    private HashSet<CollectablePickUp> collectableHash = new HashSet<CollectablePickUp>();
 
     new void Awake()
     {
@@ -30,5 +31,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public void OnLeverUsed(LeverController leverController)
     {
         usedLeversHash.Add(leverController);
+    }
+
+    public void OnCollectiblePickedUp(CollectablePickUp collectable)
+    {
+        collectableHash.Add(collectable);
     }
 }
