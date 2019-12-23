@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
+    public int leversUsed => usedLeversHash.Count;
+
     public PlayerModel playerModel;
+
+    private HashSet<LeverController> usedLeversHash = new HashSet<LeverController>();
 
     new void Awake()
     {
@@ -21,5 +25,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     void Update()
     {
         
+    }
+
+    public void OnLeverUsed(LeverController leverController)
+    {
+        usedLeversHash.Add(leverController);
     }
 }
