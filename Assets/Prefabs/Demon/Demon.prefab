@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 8632221701739700281}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &3405864347549009879
 SpriteRenderer:
@@ -108,6 +108,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8899394113443345630}
+  - {fileID: 5877758693442460251}
   m_Father: {fileID: 8632221701739700281}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -142,7 +143,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8632221700100507863}
-  - {fileID: 5877758693442460251}
   - {fileID: 4089241326840807923}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -198,22 +198,22 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8632221701739700281}
+    m_TransformParent: {fileID: 8632221700100507863}
     m_Modifications:
     - target: {fileID: 7805111748881387376, guid: 118b96078debe124199faf3e06fae9f1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7805111748881387376, guid: 118b96078debe124199faf3e06fae9f1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7805111748881387376, guid: 118b96078debe124199faf3e06fae9f1,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7805111748881387376, guid: 118b96078debe124199faf3e06fae9f1,
         type: 3}
@@ -244,6 +244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.309
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805111748881387376, guid: 118b96078debe124199faf3e06fae9f1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7805111748881387378, guid: 118b96078debe124199faf3e06fae9f1,
         type: 3}
