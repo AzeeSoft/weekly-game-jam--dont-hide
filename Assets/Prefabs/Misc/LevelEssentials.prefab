@@ -727,7 +727,7 @@ PrefabInstance:
     - target: {fileID: 8659792882469139163, guid: 78f858f8b3bc61e4f917ef5bf044bec7,
         type: 3}
       propertyPath: m_Name
-      value: ObjectiveManager
+      value: LevelManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78f858f8b3bc61e4f917ef5bf044bec7, type: 3}
