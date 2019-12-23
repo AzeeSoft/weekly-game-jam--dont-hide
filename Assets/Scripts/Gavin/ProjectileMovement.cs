@@ -7,6 +7,7 @@ public class ProjectileMovement : MonoBehaviour
     Rigidbody rb;
     float timer;
     public float bulletSpeed;
+    public float damageValue;
 
     private void Awake()
     {
@@ -23,7 +24,8 @@ public class ProjectileMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Player hit by " + gameObject.name);
+            GameManager.Instance.playerModel.health.TakeDamage(damageValue);
+            //Debug.Log("Player hit by " + gameObject.name);
         }
 
         if (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Projectile")
