@@ -8,6 +8,7 @@ public class EnemyBehavior : MonoBehaviour
     FieldOfView fov;
     EnemyStateMachine stateMachine;
     [HideInInspector] public NavMeshAgent nav;
+    public TMPro.TextMeshProUGUI textMesh;
     public Animator textAnim;
     public Canvas confusionCanvas;
 
@@ -17,6 +18,7 @@ public class EnemyBehavior : MonoBehaviour
 
     [HideInInspector] public bool searchingStop = false;
     [HideInInspector] public bool isConfused = false;
+    [HideInInspector] public bool isShocked = false;
      public float fireTime = 0.0f;
 
     [HideInInspector] public float searchTime;
@@ -48,9 +50,31 @@ public class EnemyBehavior : MonoBehaviour
         Gizmos.DrawLine(lastPlayerPosition, new Vector3(lastPlayerPosition.x, lastPlayerPosition.y + 0.5f, lastPlayerPosition.z));
     }
 
+    void Update()
+    {
+        CanvasBillBoard();
+    }
+
+    void CanvasBillBoard()
+    {
+        Vector3 dirToTarget = (fov.player.position - transform.position).normalized;
+        dirToTarget.y = 0;
+        confusionCanvas.transform.forward = dirToTarget;
+    }
+
     public void Shooting()
     {
         Collider[] targetInRange = Physics.OverlapSphere(transform.position, fov.rangeRadius, fov.playerMask);
+
+        if (!isShocked)
+        {
+            textAnim.SetBool("Shocked", true);
+
+            textMesh.color = Color.red;
+            textMesh.text = "!";
+            isShocked = true;
+        }
+
 
         if (targetInRange.Length == 0)
         {
@@ -117,7 +141,10 @@ public class EnemyBehavior : MonoBehaviour
         if (GameManager.Instance.playerModel.isCamouflaged)
         {
             Debug.Log("Player disappeared?");
+
+            textAnim.SetBool("Shocked", false);
             textAnim.SetBool("Confusion", false);
+
             nav.isStopped = true;
             stateMachine.switchState(EnemyStateMachine.StateType.LostPlayer);
         }
@@ -174,10 +201,8 @@ public class EnemyBehavior : MonoBehaviour
         {
             if (!isConfused)
             {
-                Vector3 dirToTarget = (fov.player.position - transform.position).normalized;
-                dirToTarget.y = 0;
-                confusionCanvas.transform.forward = dirToTarget;
-
+                textMesh.color = new Color { r = 207, g = 203, b = 0, a = 1 };
+                textMesh.text = "?";
                 textAnim.SetBool("Confusion", true);
                 isConfused = true;
             }

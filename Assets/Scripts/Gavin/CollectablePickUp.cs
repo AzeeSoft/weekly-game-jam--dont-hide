@@ -12,6 +12,7 @@ public class CollectablePickUp : MonoBehaviour
         {
             //Add name or just increment number of collectables in Game Manager.
             Debug.Log(gameObject.name + " has been collected!");
+            interactable.isPressed = true;
             Destroy(gameObject);
         }
     }

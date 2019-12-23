@@ -98,6 +98,9 @@ public class EnemyStateMachine : MonoBehaviour
                 break;
             case StateType.LostPlayer:
                 enemy.fireTime = 0.0f;
+
+                enemy.isShocked = false;
+                enemy.textAnim.SetBool("Shocked", false);
                 break;
         }
     }

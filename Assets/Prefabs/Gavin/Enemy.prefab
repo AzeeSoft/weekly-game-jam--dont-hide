@@ -430,10 +430,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nav: {fileID: 0}
+  textMesh: {fileID: 813382153}
   textAnim: {fileID: 813382152}
   confusionCanvas: {fileID: 34470620}
   searchingStop: 0
   isConfused: 0
+  isShocked: 0
   fireTime: 0
   searchTime: 0
   searchBuffer: 5
