@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DemonMovementController : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed = 4f;
     public float rotationSpeed = 3f;
     public float optimalYDistance = 5f;
     public float optimalYDistanceThreshold = 0.5f;
@@ -13,6 +13,7 @@ public class DemonMovementController : MonoBehaviour
 
     private DemonModel demonModel;
     private PlayerModel playerModel => demonModel.playerModel;
+    private Vector3 originalPos;
 
     void OnDrawGizmos()
     {
@@ -24,6 +25,7 @@ public class DemonMovementController : MonoBehaviour
     void Start()
     {
         demonModel = GetComponent<DemonModel>();
+        originalPos = transform.position;
     }
 
     // Update is called once per frame
@@ -33,12 +35,14 @@ public class DemonMovementController : MonoBehaviour
         {
             MoveTowardsPlayer();
         }
+        else
+        {
+            MoveTowardsTargetPosition(originalPos);
+        }
     }
 
     private void MoveTowardsPlayer()
     {
-        Vector3 moveDelta = Vector3.zero;
-
         var dir = playerModel.playerTarget.position - transform.position;
         var targetPos = playerModel.playerTarget.position;
 
@@ -47,18 +51,18 @@ public class DemonMovementController : MonoBehaviour
         targetPos -= xzDir.normalized * stopDistance;
         targetPos.y += optimalYDistance;
 
-        dir = targetPos - transform.position;
+        MoveTowardsTargetPosition(targetPos);
+    }
+
+    private void MoveTowardsTargetPosition(Vector3 targetPos)
+    {
+        Vector3 moveDelta = Vector3.zero;
+
+        var dir = targetPos - transform.position;
         if (dir.magnitude > stopDistance)
         {
             moveDelta = dir.normalized * speed * Time.deltaTime;
         }
-
-        /*float optimalYPos = playerModel.playerTarget.position.y + optimalYDistance;
-        float yDist = optimalYPos - transform.position.y;
-        if (Mathf.Abs(yDist) > optimalYDistanceThreshold)
-        {
-            moveDelta.y = Mathf.Sign(yDist) * speed * Time.deltaTime;
-        }*/
 
         transform.position += moveDelta;
 
