@@ -7,10 +7,16 @@ public class EnemyBehavior : MonoBehaviour
 {
     FieldOfView fov;
     EnemyStateMachine stateMachine;
+
     [HideInInspector] public NavMeshAgent nav;
+
+    public EnemyAnimationCheck animCheck;
+    public Transform bulletHole;
+    public Animator anim;
     public TMPro.TextMeshProUGUI textMesh;
     public Animator textAnim;
     public Canvas confusionCanvas;
+    
 
     Vector3 lastPlayerPosition;
     int currentPoint = 0;
@@ -37,6 +43,8 @@ public class EnemyBehavior : MonoBehaviour
         fov = GetComponent<FieldOfView>();
         stateMachine = GetComponent<EnemyStateMachine>();
         nav = GetComponent<NavMeshAgent>();
+
+        //anim.SetBool("Walking", true);
     }
 
     void Start()
@@ -69,7 +77,7 @@ public class EnemyBehavior : MonoBehaviour
         if (!isShocked)
         {
             textAnim.SetBool("Shocked", true);
-
+            anim.SetTrigger("Shocked");
             textMesh.color = Color.red;
             textMesh.text = "!";
             isShocked = true;
@@ -125,7 +133,7 @@ public class EnemyBehavior : MonoBehaviour
             targetRotation = Quaternion.RotateTowards(targetRotation, Random.rotation, Random.Range(0, currentSpread));
 
 
-            pooledObj.transform.position = transform.position;
+            pooledObj.transform.position = bulletHole.position;
             pooledObj.transform.rotation = targetRotation;
 
             pooledObj.SetActive(true);
@@ -154,6 +162,12 @@ public class EnemyBehavior : MonoBehaviour
     {
         Collider[] targetInRange = Physics.OverlapSphere(transform.position, fov.chaseRadius, fov.playerMask);
 
+        if (Vector3.Distance(lastPlayerPosition, fov.player.position) > 2f)
+        {
+            lastPlayerPosition = fov.player.position;
+            nav.SetDestination(lastPlayerPosition);
+        }
+
         if (targetInRange.Length == 0)
         {
             lastPlayerPosition = fov.player.position;
@@ -166,19 +180,17 @@ public class EnemyBehavior : MonoBehaviour
         Vector3 dirToTarget = (target.position - transform.position).normalized;
         float disToTarget = Vector3.Distance(transform.position, target.position);
 
-        if (Physics.Raycast(transform.position, dirToTarget, disToTarget, fov.obstacleMask))
+        RaycastHit outRay;
+
+        if (Physics.Raycast(transform.position, dirToTarget, out outRay, disToTarget, fov.obstacleMask, QueryTriggerInteraction.Ignore))
         {
             lastPlayerPosition = fov.player.position;
             nav.SetDestination(lastPlayerPosition);
+
+            Debug.Log(outRay.collider.gameObject.name);
 
             stateMachine.switchState(EnemyStateMachine.StateType.LostPlayer);
             return;
-        }
-
-        if (Vector3.Distance(lastPlayerPosition, fov.player.position) > fov.rangeRadius)
-        {
-            lastPlayerPosition = fov.player.position;
-            nav.SetDestination(lastPlayerPosition);
         }
     }
 
@@ -203,11 +215,14 @@ public class EnemyBehavior : MonoBehaviour
             {
                 textMesh.color = new Color { r = 207, g = 203, b = 0, a = 1 };
                 textMesh.text = "?";
+
                 textAnim.SetBool("Confusion", true);
+                anim.SetTrigger("Confused");
+
                 isConfused = true;
             }
             
-            if (Time.time - searchTime >= searchBuffer)
+            if (Time.time - searchTime >= searchBuffer || animCheck.stopConfusion)
             {
                 Debug.Log(gameObject.name + " is now patrolling!");
 

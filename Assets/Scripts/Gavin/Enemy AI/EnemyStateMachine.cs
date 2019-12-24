@@ -80,24 +80,40 @@ public class EnemyStateMachine : MonoBehaviour
         {
             case StateType.Patrol:
                 enemy.searchingStop = false;
+                enemy.animCheck.stopConfusion = false;
                 enemy.isConfused = false;
                 enemy.nav.isStopped = false;
+
+                enemy.anim.SetBool("Walking", true);
+                enemy.anim.ResetTrigger("Confused");
 
                 enemy.textAnim.SetBool("Confusion", false);
                 break;
             case StateType.Shoot:
                 enemy.searchingStop = false;
+                enemy.animCheck.stopConfusion = false;
                 enemy.isConfused = false;
+
+                enemy.anim.SetBool("Walking", false);
+                enemy.anim.SetBool("Chasing", false);
+                enemy.anim.ResetTrigger("Confused");
 
                 enemy.textAnim.SetBool("Confusion", false);
 
                 enemy.nav.isStopped = true;
                 break;
             case StateType.Chase:
+                enemy.anim.SetBool("Chasing", true);
+                enemy.anim.SetBool("Walking", false);
+
                 enemy.fireTime = 0.0f;
                 break;
             case StateType.LostPlayer:
                 enemy.fireTime = 0.0f;
+
+                enemy.anim.SetBool("Walking", true);
+                enemy.anim.SetBool("Chasing", false);
+                enemy.anim.ResetTrigger("Shocked");
 
                 enemy.isShocked = false;
                 enemy.textAnim.SetBool("Shocked", false);
