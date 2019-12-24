@@ -9,10 +9,12 @@ public class LeverController : MonoBehaviour
     public bool isOn = false;
 
     MeshRenderer mr;
+    private MinimapIcon minimapIcon;
 
     void Awake()
     {
         mr = GetComponent<MeshRenderer>();
+        minimapIcon = GetComponentInChildren<MinimapIcon>();
     }
 
     void Update()
@@ -25,6 +27,8 @@ public class LeverController : MonoBehaviour
 
             interactable.isPressed = true;
             interactable.TurnOffText();
+
+            minimapIcon.gameObject.SetActive(false);
 
             GameManager.Instance.OnLeverUsed(this);
         }

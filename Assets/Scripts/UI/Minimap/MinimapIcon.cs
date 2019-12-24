@@ -35,6 +35,14 @@ public class MinimapIcon : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        if (showOnEdge)
+        {
+            Minimap.Instance.RemoveFromEdgeIcons(this);
+        }
+    }
+
     public bool IsShownInMap()
     {
         var viewportPoint = GetViewportPoint();
