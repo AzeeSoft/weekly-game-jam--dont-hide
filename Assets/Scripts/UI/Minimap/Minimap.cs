@@ -39,7 +39,11 @@ public class Minimap : SingletonMonoBehaviour<Minimap>
     {
         if (edgeIcons.ContainsKey(icon))
         {
-            Destroy(edgeIcons[icon].gameObject);
+            if (edgeIcons[icon] != null && edgeIcons[icon].gameObject != null)
+            {
+                Destroy(edgeIcons[icon].gameObject);
+            }
+
             edgeIcons.Remove(icon);
         }
     }
