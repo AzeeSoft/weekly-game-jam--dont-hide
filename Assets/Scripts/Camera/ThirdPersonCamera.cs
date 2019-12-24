@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public class ThirdPersonCamera : MonoBehaviour
+public class ThirdPersonCamera : SingletonMonoBehaviour<ThirdPersonCamera>
 {
     public bool isSwitching => cameraFollow.targetFollow != null;
 
@@ -19,8 +19,10 @@ public class ThirdPersonCamera : MonoBehaviour
     private StatefulCinemachineCamera _statefulCinemachineCamera;
     private CinemachinePOV _cinemachinePov;
 
-    void Awake()
+    new void Awake()
     {
+        base.Awake();
+
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         _statefulCinemachineCamera = GetComponentInChildren<StatefulCinemachineCamera>();
         _cinemachinePov = virtualCamera.GetCinemachineComponent<CinemachinePOV>();

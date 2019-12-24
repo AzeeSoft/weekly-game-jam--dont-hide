@@ -68,7 +68,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (_virtualCamera && targetFollow)
         {
-//            var charMovementController = GetComponentInParent<CharacterMovementController>();
+//            var charMovementController = GetComponentInParent<PlayerMovementController>();
             var targetRot = targetFollow.rotation;
             if (lookAtTarget)
             {

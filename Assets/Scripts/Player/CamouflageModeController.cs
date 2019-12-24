@@ -19,6 +19,7 @@ public class CamouflageModeController : MonoBehaviour
     public PostProcessProfile camouflageModePostProcessingProfile;
     [Range(0, 1)] public float camouflageValue = 0;
 
+    private PlayerModel playerModel;
     private List<Material> materials = new List<Material>();
     private Tween camouflageTransitionTween;
     private CinemachinePostProcessing thirdPersonPostProcessing;
@@ -27,6 +28,8 @@ public class CamouflageModeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerModel = GetComponent<PlayerModel>();
+
         UpdateTimeOfLastCamouflage();
         FindMaterials();
         thirdPersonPostProcessing =
@@ -38,7 +41,7 @@ public class CamouflageModeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CrossPlatformInputManager.GetButtonDown("CamouflageToggle"))
+        if (playerModel.playerInputController.playerInput.ToggleCamouflageMode)
         {
             ToggleCamouflage();
         }

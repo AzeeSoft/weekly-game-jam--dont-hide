@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc10aee4f18343d4889c6a2e959591c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 6
   rotationSpeed: 3
   optimalYDistance: 1
   optimalYDistanceThreshold: 0.1
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRadius: 5
-  damageRate: 20
+  damageRate: 10
   attackLine: {fileID: 5877758693442460248}
 --- !u!1001 &4449747384449602859
 PrefabInstance:

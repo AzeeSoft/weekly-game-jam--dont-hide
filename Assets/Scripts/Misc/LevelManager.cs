@@ -33,6 +33,5 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        AudioSource asrc;
     }
 }
