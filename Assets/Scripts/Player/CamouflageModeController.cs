@@ -58,6 +58,7 @@ public class CamouflageModeController : MonoBehaviour
     {
         isCamouflaged = !isCamouflaged;
 
+        playerModel.animator.SetTrigger(isCamouflaged ? "EnableCamouflage" : "DisableCamouflage");
         AnimateCamouflageValue(isCamouflaged ? 1 : 0, camouflageEffectTransitionDuration, () => { });
     }
 
