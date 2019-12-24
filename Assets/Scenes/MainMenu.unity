@@ -148,7 +148,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: f660ddc962db9564699178d7bef164eb, type: 2}
   m_InitialState: 1
-  m_WrapMode: 0
+  m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -2645,7 +2645,7 @@ PrefabInstance:
     - target: {fileID: 4207061127853333295, guid: 2cc0489f556a3134f9a2f9a5f150cfc5,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 2181038079
       objectReference: {fileID: 0}
     - target: {fileID: 4207061127955271635, guid: 2cc0489f556a3134f9a2f9a5f150cfc5,
         type: 3}
@@ -2996,7 +2996,7 @@ PrefabInstance:
     - target: {fileID: 4207061127853333295, guid: 2cc0489f556a3134f9a2f9a5f150cfc5,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 2181038079
       objectReference: {fileID: 0}
     - target: {fileID: 4207061127955271635, guid: 2cc0489f556a3134f9a2f9a5f150cfc5,
         type: 3}
@@ -3202,7 +3202,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289572269
+    rgba: 4291611852
   m_fontColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 1
@@ -3352,7 +3352,7 @@ PrefabInstance:
     - target: {fileID: 4207061127853333295, guid: 2cc0489f556a3134f9a2f9a5f150cfc5,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 2181038079
       objectReference: {fileID: 0}
     - target: {fileID: 4207061127955271635, guid: 2cc0489f556a3134f9a2f9a5f150cfc5,
         type: 3}
@@ -3507,7 +3507,7 @@ PrefabInstance:
     - target: {fileID: 4207061127853333295, guid: 2cc0489f556a3134f9a2f9a5f150cfc5,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 2181038079
       objectReference: {fileID: 0}
     - target: {fileID: 4207061127955271635, guid: 2cc0489f556a3134f9a2f9a5f150cfc5,
         type: 3}
