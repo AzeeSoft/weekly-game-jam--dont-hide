@@ -5,15 +5,14 @@ using UnityEngine;
 public class LeverController : MonoBehaviour
 {
     public Interactable interactable;
-    public Material greenMat;
     public bool isOn = false;
-
-    MeshRenderer mr;
+    
+    Animator animator;
     private MinimapIcon minimapIcon;
 
     void Awake()
     {
-        mr = GetComponent<MeshRenderer>();
+        animator = GetComponentInChildren<Animator>();
         minimapIcon = GetComponentInChildren<MinimapIcon>();
     }
 
@@ -22,12 +21,12 @@ public class LeverController : MonoBehaviour
         if (interactable.canPress && Input.GetKeyDown(KeyCode.E) && !isOn)
         {
             Debug.Log(gameObject.name + " has been switched!");
-            mr.material = greenMat;
             isOn = true;
 
             interactable.isPressed = true;
             interactable.TurnOffText();
 
+            animator.SetTrigger("Activate");
             minimapIcon.gameObject.SetActive(false);
 
             GameManager.Instance.OnLeverUsed(this);

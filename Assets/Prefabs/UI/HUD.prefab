@@ -706,8 +706,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 17b3b3c884ce36040abaecb60a86e781, type: 2}
-  m_sharedMaterial: {fileID: -6778044151253901054, guid: 17b3b3c884ce36040abaecb60a86e781,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: c4e3aef5173da9e468a3f704e47e10dc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -732,8 +731,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -998,8 +997,7 @@ MonoBehaviour:
   m_text: 'Objective:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 17b3b3c884ce36040abaecb60a86e781, type: 2}
-  m_sharedMaterial: {fileID: -6778044151253901054, guid: 17b3b3c884ce36040abaecb60a86e781,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: c4e3aef5173da9e468a3f704e47e10dc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1024,8 +1022,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1041,7 +1039,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
