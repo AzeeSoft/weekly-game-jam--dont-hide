@@ -1815,7 +1815,7 @@ PrefabInstance:
     - target: {fileID: 716076030737466968, guid: e99f952017a07bd42a8cb4f15a6fb8f6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 716076030737466968, guid: e99f952017a07bd42a8cb4f15a6fb8f6,
         type: 3}
@@ -1835,7 +1835,7 @@ PrefabInstance:
     - target: {fileID: 716076030737466968, guid: e99f952017a07bd42a8cb4f15a6fb8f6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Resume
+      value: GoToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 716076030737466968, guid: e99f952017a07bd42a8cb4f15a6fb8f6,
         type: 3}

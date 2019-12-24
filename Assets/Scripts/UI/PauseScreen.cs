@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseScreen : SingletonMonoBehaviour<PauseScreen>
 {
@@ -42,5 +43,10 @@ public class PauseScreen : SingletonMonoBehaviour<PauseScreen>
         pauseScreenRoot.SetActive(false);
         Time.timeScale = 1;
         HelperUtilities.UpdateCursorLock(true);
+    }
+
+    public void GoToMainMenu()
+    {
+        ScreenFader.Instance.FadeOutAndExecute(() => { SceneManager.LoadScene("MainMenu"); });
     }
 }
