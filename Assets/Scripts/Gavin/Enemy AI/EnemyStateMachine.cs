@@ -30,41 +30,44 @@ public class EnemyStateMachine : MonoBehaviour
 
     void Update()
     {
-        switch (state)
+        if (GameManager.Instance.playerModel.isAlive)
         {
-            case StateType.Patrol:
-                if (!GameManager.Instance.playerModel.isCamouflaged)
-                {
-                    fov.FindPlayer();
-                }
+            switch (state)
+            {
+                case StateType.Patrol:
+                    if (!GameManager.Instance.playerModel.isCamouflaged)
+                    {
+                        fov.FindPlayer();
+                    }
 
-                enemy.Patrolling();
-                break;
-            case StateType.Shoot:
-                if (!GameManager.Instance.playerModel.isCamouflaged)
-                {
-                    enemy.Shooting();
-                }
+                    enemy.Patrolling();
+                    break;
+                case StateType.Shoot:
+                    if (!GameManager.Instance.playerModel.isCamouflaged)
+                    {
+                        enemy.Shooting();
+                    }
 
-                enemy.CamoCheck();
-                break;
-            case StateType.Chase:
-                if (!GameManager.Instance.playerModel.isCamouflaged)
-                {
-                    enemy.Chasing();
-                    fov.FindPlayer();
-                }
-                
-                enemy.CamoCheck();
-                break;
-            case StateType.LostPlayer:
-                if (!GameManager.Instance.playerModel.isCamouflaged)
-                {
-                    fov.FindPlayer();
-                }
+                    enemy.CamoCheck();
+                    break;
+                case StateType.Chase:
+                    if (!GameManager.Instance.playerModel.isCamouflaged)
+                    {
+                        enemy.Chasing();
+                        fov.FindPlayer();
+                    }
 
-                enemy.playerSearch();
-                break;
+                    enemy.CamoCheck();
+                    break;
+                case StateType.LostPlayer:
+                    if (!GameManager.Instance.playerModel.isCamouflaged)
+                    {
+                        fov.FindPlayer();
+                    }
+
+                    enemy.playerSearch();
+                    break;
+            }
         }
     }
 
@@ -96,6 +99,7 @@ public class EnemyStateMachine : MonoBehaviour
 
                 enemy.anim.SetBool("Walking", false);
                 enemy.anim.SetBool("Chasing", false);
+                enemy.anim.SetBool("Idle", false);
                 enemy.anim.ResetTrigger("Confused");
 
                 enemy.textAnim.SetBool("Confusion", false);
@@ -103,16 +107,23 @@ public class EnemyStateMachine : MonoBehaviour
                 enemy.nav.isStopped = true;
                 break;
             case StateType.Chase:
+                enemy.searchingStop = false;
+                enemy.isConfused = false;
+
                 enemy.anim.SetBool("Chasing", true);
                 enemy.anim.SetBool("Walking", false);
+                enemy.anim.SetBool("Idle", false);
+
+                enemy.anim.ResetTrigger("Confused");
 
                 enemy.fireTime = 0.0f;
                 break;
             case StateType.LostPlayer:
                 enemy.fireTime = 0.0f;
 
-                enemy.anim.SetBool("Walking", true);
                 enemy.anim.SetBool("Chasing", false);
+                enemy.anim.SetBool("Walking", true);
+                enemy.anim.SetBool("Idle", false);
                 enemy.anim.ResetTrigger("Shocked");
 
                 enemy.isShocked = false;

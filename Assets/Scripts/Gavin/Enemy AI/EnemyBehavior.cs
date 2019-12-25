@@ -22,6 +22,8 @@ public class EnemyBehavior : MonoBehaviour
     int currentPoint = 0;
     private ObjectPooler.Key enemyProjectileKey = ObjectPooler.Key.EnemyProjectile;
 
+    Quaternion originalRotation;
+
     [HideInInspector] public bool searchingStop = false;
     [HideInInspector] public bool isConfused = false;
     [HideInInspector] public bool isShocked = false;
@@ -44,7 +46,7 @@ public class EnemyBehavior : MonoBehaviour
         stateMachine = GetComponent<EnemyStateMachine>();
         nav = GetComponent<NavMeshAgent>();
 
-        //anim.SetBool("Walking", true);
+        originalRotation = transform.rotation;
     }
 
     void Start()
@@ -113,7 +115,7 @@ public class EnemyBehavior : MonoBehaviour
             return;
         }
 
-        Quaternion targetRotation = Quaternion.LookRotation(fov.player.position - transform.position);
+        Quaternion targetRotation = Quaternion.LookRotation(GameManager.Instance.playerModel.playerTarget.transform.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 2f * Time.deltaTime);
 
         Shoot();
@@ -125,7 +127,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             GameObject pooledObj = ObjectPooler.GetPooler(enemyProjectileKey).GetPooledObject();
 
-            Vector3 targetDirection = fov.player.position - transform.position;
+            Vector3 targetDirection = GameManager.Instance.playerModel.playerTarget.transform.position - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
 
             float currentSpread = Mathf.Lerp(0.0f, maxBulletSpread, fireTime / timeToMaxSpread);
@@ -200,12 +202,14 @@ public class EnemyBehavior : MonoBehaviour
         {
             searchingStop = true;
             searchTime = Time.time;
+            nav.isStopped = true;
             return;
         }
         else if (GameManager.Instance.playerModel.isCamouflaged && !searchingStop)
         {
             searchingStop = true;
             searchTime = Time.time;
+            nav.isStopped = true;
             return;
         }
 
@@ -222,7 +226,7 @@ public class EnemyBehavior : MonoBehaviour
                 isConfused = true;
             }
             
-            if (Time.time - searchTime >= searchBuffer || animCheck.stopConfusion)
+            if (animCheck.stopConfusion)
             {
                 Debug.Log(gameObject.name + " is now patrolling!");
 
@@ -237,16 +241,25 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, navPoints[currentPoint].position) < 1.5f)
         {
-            if (currentPoint + 1 == navPoints.Length)
+            if (navPoints.Length > 1)
             {
-                currentPoint = 0;
+                if (currentPoint + 1 == navPoints.Length)
+                {
+                    currentPoint = 0;
+                }
+                else
+                {
+                    currentPoint++;
+                }
+
+                nav.SetDestination(navPoints[currentPoint].position);
             }
             else
             {
-                currentPoint++;
+                transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, 5f * Time.deltaTime);
+                nav.isStopped = true;
+                anim.SetBool("Idle", true);
             }
-
-            nav.SetDestination(navPoints[currentPoint].position);
         }
     }
 }
