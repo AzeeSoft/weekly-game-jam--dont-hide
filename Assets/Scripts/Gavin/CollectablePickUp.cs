@@ -8,6 +8,11 @@ public class CollectablePickUp : MonoBehaviour
     
     public Interactable interactable;
 
+    void Start()
+    {
+        interactable.text = $"Press 'E' to collect: {collectableName}";
+    }
+
     void Update()
     {
         if (interactable.canPress && Input.GetKeyDown(KeyCode.E)) 

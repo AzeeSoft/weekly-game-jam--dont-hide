@@ -16,6 +16,9 @@ public class EnemyBehavior : MonoBehaviour
     public TMPro.TextMeshProUGUI textMesh;
     public Animator textAnim;
     public Canvas confusionCanvas;
+
+    public AudioClip[] confusedSounds;
+    public AudioClip shootingSound;
     
 
     Vector3 lastPlayerPosition;
@@ -83,6 +86,7 @@ public class EnemyBehavior : MonoBehaviour
             textMesh.color = Color.red;
             textMesh.text = "!";
             isShocked = true;
+
         }
 
 
@@ -125,6 +129,8 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (Time.time - shootTime >= shootBuffer)
         {
+            SoundEffectsManager.Instance.PlayAt(shootingSound, transform.position);
+
             GameObject pooledObj = ObjectPooler.GetPooler(enemyProjectileKey).GetPooledObject();
 
             Vector3 targetDirection = GameManager.Instance.playerModel.playerTarget.transform.position - transform.position;
@@ -136,6 +142,8 @@ public class EnemyBehavior : MonoBehaviour
 
 
             pooledObj.transform.position = bulletHole.position;
+            pooledObj.transform.rotation = targetRotation;
+            pooledObj.transform.rotation = targetRotation;
             pooledObj.transform.rotation = targetRotation;
 
             pooledObj.SetActive(true);
@@ -222,6 +230,17 @@ public class EnemyBehavior : MonoBehaviour
 
                 textAnim.SetBool("Confusion", true);
                 anim.SetTrigger("Confused");
+
+                int rand = Random.Range(0, 2);
+                switch (rand)
+                {
+                    case 0:
+                        SoundEffectsManager.Instance.PlayAt(confusedSounds[0], transform.position);
+                        break;
+                    case 1:
+                        SoundEffectsManager.Instance.PlayAt(confusedSounds[1], transform.position);
+                        break;
+                }
 
                 isConfused = true;
             }

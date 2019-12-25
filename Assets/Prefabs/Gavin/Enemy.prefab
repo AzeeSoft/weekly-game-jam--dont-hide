@@ -375,6 +375,10 @@ MonoBehaviour:
   textMesh: {fileID: 813382153}
   textAnim: {fileID: 813382152}
   confusionCanvas: {fileID: 34470620}
+  confusedSounds:
+  - {fileID: 8300000, guid: f63d5a9b9e6aa26428501048d990de24, type: 3}
+  - {fileID: 8300000, guid: bca88bc80d6ce18469309848555fa05a, type: 3}
+  shootingSound: {fileID: 8300000, guid: 4292f325339b4d546b9aa86585e378c8, type: 3}
   searchingStop: 0
   isConfused: 0
   isShocked: 0
