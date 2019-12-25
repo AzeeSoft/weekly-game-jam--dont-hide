@@ -43,3 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad22e08ef496b104eabdc3cf0ede170d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerModel: {fileID: 0}
+  allCollectablePrefabs:
+  - {fileID: 6335726044361927136, guid: 1c3b44a25ac0e5d4086bf6381375264f, type: 3}
+  - {fileID: 6335726044361927136, guid: 611521268b5b1184aa78c2626a13c533, type: 3}
+  - {fileID: 6335726044361927136, guid: a369762b76bc9e1459c2f7a94b24c1be, type: 3}
+  - {fileID: 6335726044361927136, guid: ab27115719e0da447ac2744600021cc4, type: 3}
+  - {fileID: 6335726044361927136, guid: bc699104d8a611941803c93e361c17d6, type: 3}
+  - {fileID: 6335726044361927136, guid: 74bc4ec0640f07945966c56d23b14871, type: 3}
+  - {fileID: 6335726044361927136, guid: 7a6b43a454e84f9409615f7f8983febf, type: 3}
+  - {fileID: 6335726044361927136, guid: 32dd1b50a02021d4cbd96a2b9ae490e6, type: 3}
+  - {fileID: 6335726044361927136, guid: ad34281162680984e807c6d3a488b8bb, type: 3}
+  - {fileID: 6335726044361927136, guid: 1fd45ef1883e5754f88352e170b6061d, type: 3}
+  - {fileID: 6335726044361927136, guid: 2595fd7d13b52ef468ee1d69a6334577, type: 3}
+  - {fileID: 6335726044361927136, guid: d86a88a4884807e458bd77c28c0cdc37, type: 3}
+  - {fileID: 6335726044361927136, guid: 09277bcdb447f9c4f8911f07047d7213, type: 3}
+  - {fileID: 6335726044361927136, guid: a12000bfb1ffb64419de359b67599585, type: 3}

@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f44152fc91398147b2a932acba474cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundsSize: {x: 6, y: 6, z: 6}
+  boundsSize: {x: 9, y: 9, z: 9}
   objectHolder: {fileID: 8663958548383645052}
   rotationAnimator: {fileID: 7750141052508184796}
   camera: {fileID: 4736095539169536806}
@@ -609,7 +609,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 256, y: 256}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3935019856837715201
 CanvasRenderer:
