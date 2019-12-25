@@ -63,7 +63,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press 'E' to do something
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 17b3b3c884ce36040abaecb60a86e781, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: c4e3aef5173da9e468a3f704e47e10dc, type: 2}
@@ -132,13 +132,13 @@ MonoBehaviour:
   m_margin: {x: -158.94275, y: 0, z: -157.20862, w: 0}
   m_textInfo:
     textComponent: {fileID: 3806572336771114831}
-    characterCount: 25
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 5
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

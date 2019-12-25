@@ -26,6 +26,6 @@ public class PlayerHealthUI : MonoBehaviour
     private void UpdatePlayerHealthUI()
     {
         healthFill.fillAmount = playerModel.health.normalizedHealth;
-        healthText.text = ((int) (playerModel.health.normalizedHealth * 100)).ToString();
+        healthText.text = (Mathf.CeilToInt(playerModel.health.normalizedHealth * 100)).ToString();
     }
 }

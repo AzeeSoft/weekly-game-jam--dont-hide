@@ -45,7 +45,29 @@ public static class HelperExtensions
         return result;
     }
 
-    public static void RemoveAllChildren(this Transform self)
+    public static Bounds GetBoundsFromRenderers(this Transform self)
+    {
+        List<Renderer> renderers = new List<Renderer>();
+
+        var selfRenderer = self.GetComponent<Renderer>();
+        if (selfRenderer != null)
+        {
+            renderers.Add(selfRenderer);
+        }
+
+        renderers.AddRange(self.GetComponentsInChildren<Renderer>());
+
+        Bounds bounds = new Bounds();
+        if (renderers.Count > 0)
+        {
+            bounds = renderers[0].bounds;
+            foreach (var r in renderers) bounds.Encapsulate(r.bounds);
+        }
+
+        return bounds;
+    }
+
+    public static void DestroyAllChildren(this Transform self)
     {
         foreach (Transform child in self)
         {
