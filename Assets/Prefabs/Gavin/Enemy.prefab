@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ed74802463a9f4d83990ac4fe013ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeRadius: 6
+  rangeRadius: 300
   chaseRadius: 7
   viewAngle: 120
   playerMask:
@@ -353,7 +353,7 @@ MonoBehaviour:
     m_Bits: 0
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 20481
   visibleTargets: []
   player: {fileID: 0}
 --- !u!114 &138407074825185201
@@ -387,12 +387,8 @@ MonoBehaviour:
   searchBuffer: 5
   shootTime: 0
   shootBuffer: 0.1
-  navPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  maxBulletSpread: 6
+  navPoints: []
+  maxBulletSpread: 0
   timeToMaxSpread: 1
 --- !u!114 &138407074825185214
 MonoBehaviour:

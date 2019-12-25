@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7801409475920078697}
   - component: {fileID: 7801409475920078698}
   - component: {fileID: 7801409475920078699}
-  - component: {fileID: 8607857854656526471}
+  - component: {fileID: 8354381534033602617}
   m_Layer: 0
   m_Name: Free Fly Camera
   m_TagString: MainCamera
@@ -84,7 +84,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7801409475920078700}
   m_Enabled: 1
---- !u!114 &8607857854656526471
+--- !u!114 &8354381534033602617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7801409475920078700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73298f43b250ea046b132cc2f0900cb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c44e2d920bca9646bc9002e8a28e1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraSensitivity: 90
@@ -101,3 +101,5 @@ MonoBehaviour:
   normalMoveSpeed: 10
   slowMoveFactor: 0.25
   fastMoveFactor: 3
+  inputX: Mouse X
+  inputY: Mouse Y

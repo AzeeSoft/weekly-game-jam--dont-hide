@@ -50,6 +50,13 @@ public class EnemyBehavior : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
 
         originalRotation = transform.rotation;
+
+        if (navPoints.Length == 0)
+        {
+            GameObject generatedNavPoint = new GameObject("Generated Nav Point");
+            generatedNavPoint.transform.position = transform.position;
+            navPoints = new[] {generatedNavPoint.transform};
+        }
     }
 
     void Start()

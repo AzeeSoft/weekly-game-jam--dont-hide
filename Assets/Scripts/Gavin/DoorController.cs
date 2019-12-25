@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
     public LeverController[] levers;
-    public Material openMat;
-    MeshRenderer mr;
+    private Animator animator;
 
-    public bool isOpen = false;
+    [HideInInspector] public bool isOpen = false;
+
+    public bool advanceToNextLevel = false;
+    public string nextLevel = "";
 
     void Awake()
     {
-        mr = GetComponent<MeshRenderer>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -33,8 +36,16 @@ public class DoorController : MonoBehaviour
         if (!isOpen)
         {
             Debug.Log("Door has been open!");
-            mr.material = openMat;
+            animator.SetTrigger("Open");
             isOpen = true;
+        }
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (isOpen && advanceToNextLevel)
+        {
+            ScreenFader.Instance.FadeOutAndExecute(() => SceneManager.LoadScene(nextLevel));
         }
     }
 }
