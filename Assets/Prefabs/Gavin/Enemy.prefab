@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 138407074825185200}
   - component: {fileID: 138407074825185201}
   - component: {fileID: 138407074825185214}
+  - component: {fileID: 4014138723366307290}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
@@ -328,7 +329,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1.7
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -381,7 +382,7 @@ MonoBehaviour:
   searchTime: 0
   searchBuffer: 5
   shootTime: 0
-  shootBuffer: 0.2
+  shootBuffer: 0.1
   navPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -402,6 +403,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+--- !u!136 &4014138723366307290
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138407074825185215}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.7
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.12, z: 0}
 --- !u!1 &1682888442922739697
 GameObject:
   m_ObjectHideFlags: 0
