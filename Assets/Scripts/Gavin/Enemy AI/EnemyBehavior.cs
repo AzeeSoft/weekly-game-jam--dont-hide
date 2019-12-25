@@ -19,7 +19,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public AudioClip[] confusedSounds;
     public AudioClip shootingSound;
-    
+
 
     Vector3 lastPlayerPosition;
     int currentPoint = 0;
@@ -30,13 +30,15 @@ public class EnemyBehavior : MonoBehaviour
     [HideInInspector] public bool searchingStop = false;
     [HideInInspector] public bool isConfused = false;
     [HideInInspector] public bool isShocked = false;
-     public float fireTime = 0.0f;
+    public float fireTime = 0.0f;
 
     [HideInInspector] public float searchTime;
     public float searchBuffer;
 
     [HideInInspector] public float shootTime;
     public float shootBuffer;
+    public float predictionFactor;
+    public float distPredictionFactor;
 
     public Transform[] navPoints;
     public float maxBulletSpread;
@@ -67,7 +69,8 @@ public class EnemyBehavior : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(lastPlayerPosition, new Vector3(lastPlayerPosition.x, lastPlayerPosition.y + 0.5f, lastPlayerPosition.z));
+        Gizmos.DrawLine(lastPlayerPosition,
+            new Vector3(lastPlayerPosition.x, lastPlayerPosition.y + 0.5f, lastPlayerPosition.z));
     }
 
     void Update()
@@ -93,7 +96,6 @@ public class EnemyBehavior : MonoBehaviour
             textMesh.color = Color.red;
             textMesh.text = "!";
             isShocked = true;
-
         }
 
 
@@ -102,7 +104,7 @@ public class EnemyBehavior : MonoBehaviour
             nav.isStopped = false;
             lastPlayerPosition = fov.player.position;
             nav.SetDestination(lastPlayerPosition);
-            
+
 
             stateMachine.switchState(EnemyStateMachine.StateType.Chase);
             return;
@@ -114,7 +116,8 @@ public class EnemyBehavior : MonoBehaviour
 
         RaycastHit outRay;
 
-        if (Physics.Raycast(transform.position, dirToTarget, out outRay, disToTarget, fov.obstacleMask, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(transform.position, dirToTarget, out outRay, disToTarget, fov.obstacleMask,
+            QueryTriggerInteraction.Ignore))
         {
             nav.isStopped = false;
             lastPlayerPosition = fov.player.position;
@@ -126,7 +129,9 @@ public class EnemyBehavior : MonoBehaviour
             return;
         }
 
-        Quaternion targetRotation = Quaternion.LookRotation(GameManager.Instance.playerModel.playerTarget.transform.position - transform.position);
+        Quaternion targetRotation =
+            Quaternion.LookRotation(GameManager.Instance.playerModel.playerTarget.transform.position -
+                                    transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 2f * Time.deltaTime);
 
         Shoot();
@@ -140,7 +145,14 @@ public class EnemyBehavior : MonoBehaviour
 
             GameObject pooledObj = ObjectPooler.GetPooler(enemyProjectileKey).GetPooledObject();
 
-            Vector3 targetDirection = GameManager.Instance.playerModel.playerTarget.transform.position - transform.position;
+            float dist = Vector3.Distance(GameManager.Instance.playerModel.playerTarget.transform.position,
+                transform.position);
+
+            Vector3 predictivePos = GameManager.Instance.playerModel.playerTarget.transform.position +
+                                    (GameManager.Instance.playerModel.playerMovementController.m_CharacterController
+                                         .velocity.normalized * predictionFactor * dist * distPredictionFactor);
+
+            Vector3 targetDirection = predictivePos - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
 
             float currentSpread = Mathf.Lerp(0.0f, maxBulletSpread, fireTime / timeToMaxSpread);
@@ -158,7 +170,6 @@ public class EnemyBehavior : MonoBehaviour
             shootTime = Time.time;
             fireTime += Time.deltaTime * 5;
         }
-        
     }
 
     public void CamoCheck()
@@ -199,7 +210,8 @@ public class EnemyBehavior : MonoBehaviour
 
         RaycastHit outRay;
 
-        if (Physics.Raycast(transform.position, dirToTarget, out outRay, disToTarget, fov.obstacleMask, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(transform.position, dirToTarget, out outRay, disToTarget, fov.obstacleMask,
+            QueryTriggerInteraction.Ignore))
         {
             lastPlayerPosition = fov.player.position;
             nav.SetDestination(lastPlayerPosition);
@@ -232,7 +244,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             if (!isConfused)
             {
-                textMesh.color = new Color { r = 207, g = 203, b = 0, a = 1 };
+                textMesh.color = new Color {r = 207, g = 203, b = 0, a = 1};
                 textMesh.text = "?";
 
                 textAnim.SetBool("Confusion", true);
@@ -251,7 +263,7 @@ public class EnemyBehavior : MonoBehaviour
 
                 isConfused = true;
             }
-            
+
             if (animCheck.stopConfusion)
             {
                 Debug.Log(gameObject.name + " is now patrolling!");

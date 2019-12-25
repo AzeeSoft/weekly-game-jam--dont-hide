@@ -69,7 +69,7 @@ public class FieldOfView : MonoBehaviour
             {
                 float disToTarget = Vector3.Distance(transform.position, target.position);
 
-                if (!(Physics.Raycast(transform.position, dirToTarget, disToTarget, obstacleMask)))
+                if (!(Physics.Raycast(transform.position, dirToTarget, disToTarget, obstacleMask, QueryTriggerInteraction.Ignore)))
                 {
                     stateMachine.switchState(EnemyStateMachine.StateType.Shoot);
                     visibleTargets.Add(target);

@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRadius: 5
-  damageRate: 10
+  damageRate: 20
   attackLine: {fileID: 5877758693442460248}
 --- !u!1001 &4449747384449602859
 PrefabInstance:

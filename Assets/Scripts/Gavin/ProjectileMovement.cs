@@ -22,6 +22,11 @@ public class ProjectileMovement : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (other.isTrigger)
+        {
+            return;
+        }
+
         if (other.gameObject.tag == "Player")
         {
             GameManager.Instance.playerModel.health.TakeDamage(damageValue);

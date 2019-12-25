@@ -955,7 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a9aff5e69523541ba9e737b0a4aaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeHealthRegeneration: 3
+  delayBeforeHealthRegeneration: 6
   healthRegenerationSpeed: 5
   playerTarget: {fileID: 5615605133238313095}
 --- !u!114 &5904793674725376671
@@ -3075,7 +3075,7 @@ Transform:
   m_GameObject: {fileID: 6165883646283407023}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 5419005010019940350}
   m_RootOrder: 2

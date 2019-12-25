@@ -44,10 +44,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public void OnCollectiblePickedUp(CollectablePickUp collectable)
     {
         collectablesCollected.Add(collectable.collectableName);
-        SaveCollectables(collectable.collectableName);
+        SaveCollectables();
     }
 
-    private void SaveCollectables(string collectableName)
+    private void SaveCollectables()
     {
         PlayerPrefs.SetString(collectablePlayerPrefsKey, JsonUtility.ToJson(collectablesCollected.ToList()));
     }

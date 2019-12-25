@@ -387,9 +387,11 @@ MonoBehaviour:
   searchBuffer: 5
   shootTime: 0
   shootBuffer: 0.1
+  predictionFactor: 0.06
+  distPredictionFactor: 1
   navPoints: []
   maxBulletSpread: 0
-  timeToMaxSpread: 1
+  timeToMaxSpread: 3
 --- !u!114 &138407074825185214
 MonoBehaviour:
   m_ObjectHideFlags: 0
