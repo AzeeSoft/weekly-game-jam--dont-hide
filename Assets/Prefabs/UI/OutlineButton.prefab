@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 716076030737466970}
   - component: {fileID: 716076030737466969}
   - component: {fileID: 716076030737466968}
+  - component: {fileID: 585042721382434680}
   m_Layer: 0
   m_Name: OutlineButton
   m_TagString: Untagged
@@ -274,3 +275,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &585042721382434680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716076030737466974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695e7e4ff485c6f4a8169e7ebbf38ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonPressClip: {fileID: 8300000, guid: cd01ab7270b38d74e8ced3f59e7bc4d2, type: 3}
