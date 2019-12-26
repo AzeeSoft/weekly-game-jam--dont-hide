@@ -141,7 +141,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (Time.time - shootTime >= shootBuffer)
         {
-            SoundEffectsManager.Instance.PlayAt(shootingSound, transform.position);
+            SoundEffectsManager.Instance.Play(shootingSound);
 
             GameObject pooledObj = ObjectPooler.GetPooler(enemyProjectileKey).GetPooledObject();
 

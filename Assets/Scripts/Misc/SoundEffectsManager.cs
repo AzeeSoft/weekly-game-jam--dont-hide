@@ -25,7 +25,7 @@ public class SoundEffectsManager : SingletonMonoBehaviour<SoundEffectsManager>
             return;
         }
 
-        audioSource.spatialize = false;
+        audioSource.spatialBlend = 0f;
         audioSource.PlayOneShot(audioClip);
     }
 
@@ -36,7 +36,7 @@ public class SoundEffectsManager : SingletonMonoBehaviour<SoundEffectsManager>
             return;
         }
 
-        audioSource.spatialize = true;
+        audioSource.spatialBlend = 1f;
         audioSource.transform.position = position;
         audioSource.PlayOneShot(audioClip);
     }

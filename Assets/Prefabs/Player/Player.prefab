@@ -959,6 +959,10 @@ MonoBehaviour:
   healthRegenerationSpeed: 5
   playerTarget: {fileID: 5615605133238313095}
   deathAnimationDuration: 3
+  playerHitCamShakeDuration: 1
+  playerHitCamShakeMinInterval: 0.5
+  playerHitCamShakeAmplitude: 0.4
+  playerHitCamShakeFrequency: 100
 --- !u!114 &5904793674725376671
 MonoBehaviour:
   m_ObjectHideFlags: 0

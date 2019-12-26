@@ -107,7 +107,7 @@ Cloth:
   m_ExternalAcceleration: {x: 0, y: 0, z: 0}
   m_RandomAcceleration: {x: 1, y: 1, z: 1}
   m_WorldVelocityScale: 0
-  m_WorldAccelerationScale: 0
+  m_WorldAccelerationScale: 0.1
   m_Friction: 0.5
   m_CollisionMassScale: 0
   m_UseContinuousCollision: 1

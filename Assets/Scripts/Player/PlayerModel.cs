@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
@@ -17,6 +18,12 @@ public class PlayerModel : MonoBehaviour
     public float healthRegenerationSpeed = 1f;
     public Transform playerTarget;
     public float deathAnimationDuration = 3f;
+    public float playerHitCamShakeDuration = 1f;
+    public float playerHitCamShakeMinInterval = 1f;
+    public float playerHitCamShakeAmplitude = 3f;
+    public int playerHitCamShakeFrequency = 10;
+
+    private bool isShakingCam = false;
 
     void Awake()
     {
@@ -30,6 +37,21 @@ public class PlayerModel : MonoBehaviour
             if (health.currentHealth > 0)
             {
                 animator.SetTrigger("Hit");
+
+                if (!isShakingCam)
+                {
+                    CinemachineCameraManager.Instance.CurrentStatefulCinemachineCamera.CamNoise(
+                        playerHitCamShakeAmplitude, playerHitCamShakeFrequency);
+                    isShakingCam = true;
+                    this.WaitAndExecute(() =>
+                    {
+                        CinemachineCameraManager.Instance.CurrentStatefulCinemachineCamera.CamNoise(0, 0);
+                        this.WaitAndExecute(() =>
+                        {
+                            isShakingCam = false;
+                        }, playerHitCamShakeMinInterval);
+                    }, playerHitCamShakeDuration);
+                }
             }
         });
         health.OnHealthDepleted.AddListener(() =>

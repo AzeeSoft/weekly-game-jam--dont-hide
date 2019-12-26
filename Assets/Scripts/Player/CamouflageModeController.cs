@@ -66,7 +66,7 @@ public class CamouflageModeController : MonoBehaviour
         isCamouflaged = !isCamouflaged;
 
         playerModel.animator.SetTrigger(isCamouflaged ? "EnableCamouflage" : "DisableCamouflage");
-        SoundEffectsManager.Instance.PlayAt(isCamouflaged ? camoOnSound : camoOffSound, transform.position);
+        SoundEffectsManager.Instance.Play(isCamouflaged ? camoOnSound : camoOffSound);
         AnimateCamouflageValue(isCamouflaged ? 1 : 0, camouflageEffectTransitionDuration, () => { });
     }
 

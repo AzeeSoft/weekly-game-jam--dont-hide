@@ -11,6 +11,8 @@ public class DemonModel : MonoBehaviour
 
     public GameObject avatar;
     public GameObject minimapIcon;
+    public AudioSource cloakRustleAudioSource;
+    public AudioSource attackingAudioSource;
 
     private SkinnedMeshRenderer skinnedMeshRenderer;
 
@@ -19,6 +21,9 @@ public class DemonModel : MonoBehaviour
     {
         playerModel = GameManager.Instance.playerModel;
         skinnedMeshRenderer = avatar.GetComponentInChildren<SkinnedMeshRenderer>();
+
+        cloakRustleAudioSource.volume = 0f;
+        attackingAudioSource.volume = 0f;
     }
 
     // Update is called once per frame
@@ -41,6 +46,7 @@ public class DemonModel : MonoBehaviour
             //            avatar.SetActive(true);
             skinnedMeshRenderer.enabled = true;
             minimapIcon.SetActive(true);
+            cloakRustleAudioSource.volume = 1f;
         }
     }
 
@@ -51,6 +57,7 @@ public class DemonModel : MonoBehaviour
 //            avatar.SetActive(false);
             skinnedMeshRenderer.enabled = false;
             minimapIcon.SetActive(false);
+            cloakRustleAudioSource.volume = 0f;
         }
     }
 }

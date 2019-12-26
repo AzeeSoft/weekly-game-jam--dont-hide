@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DemonAttackController : MonoBehaviour
 {
+    public bool attackingPlayer { get; private set; } = false;
+
     public float attackRadius = 3f;
     public float damageRate = 20f;
     public LineRenderer attackLine;
@@ -27,7 +29,8 @@ public class DemonAttackController : MonoBehaviour
     void Update()
     {
         attackLine.gameObject.SetActive(false);
-        
+
+        attackingPlayer = false;
         if (demonModel.canSeePlayer && playerModel.isAlive)
         {
             float distToPlayer = Vector3.Distance(transform.position, playerModel.playerTarget.position);
@@ -36,6 +39,8 @@ public class DemonAttackController : MonoBehaviour
                 AttackPlayer();
             }
         }
+
+        demonModel.attackingAudioSource.volume = attackingPlayer ? 1 : 0;
     }
 
     private void AttackPlayer()
@@ -47,5 +52,7 @@ public class DemonAttackController : MonoBehaviour
 
         DamageDirectionIndicatorManager.Instance.IndicateDamageFrom(transform,
             DamageDirectionIndicatorManager.IndicatorType.Demon);
+
+        attackingPlayer = true;
     }
 }
