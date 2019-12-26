@@ -14,6 +14,7 @@ public class Interactable : MonoBehaviour
         if (other.gameObject.tag == "Player" && !isPressed)
         {
             InteractableTextPopUp.Instance.textMesh.text = text;
+            InteractableTextPopUp.Instance.panel.SetActive(true);
             canPress = true;
         }
     }
@@ -21,6 +22,7 @@ public class Interactable : MonoBehaviour
     public void TurnOffText()
     {
         InteractableTextPopUp.Instance.textMesh.text = "";
+        InteractableTextPopUp.Instance.panel.SetActive(false);
     }
 
     void OnTriggerExit(Collider other)
@@ -28,6 +30,7 @@ public class Interactable : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             InteractableTextPopUp.Instance.textMesh.text = "";
+            InteractableTextPopUp.Instance.panel.SetActive(false);
             canPress = false;
         }
     }
@@ -35,5 +38,6 @@ public class Interactable : MonoBehaviour
     private void OnDestroy()
     {
         InteractableTextPopUp.Instance.textMesh.text = "";
+        InteractableTextPopUp.Instance.panel.SetActive(false);
     }
 }
