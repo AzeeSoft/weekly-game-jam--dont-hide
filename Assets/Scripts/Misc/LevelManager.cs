@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : SingletonMonoBehaviour<LevelManager>
 {
+    public int levelNum;
+
     public GameObject WinScreen;
     public GameObject LoseScreen;
 
