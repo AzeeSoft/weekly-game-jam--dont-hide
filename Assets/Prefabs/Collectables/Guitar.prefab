@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &5069909185887947174
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3613232053646872255}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.94810295, y: 0.24595006, z: 2.9044116}
+  m_Center: {x: -0.012393503, y: -0.034295008, z: 0.31104553}
 --- !u!1 &6335726044361927136
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +22,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6335726044361927148}
-  - component: {fileID: 6335726044361927139}
   - component: {fileID: 8036635691090660427}
   m_Layer: 0
   m_Name: Guitar
@@ -34,19 +46,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6335726044361927139
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6335726044361927136}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2.75}
-  m_Center: {x: 0, y: 0, z: 0.21}
 --- !u!114 &8036635691090660427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +59,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Guitar
+  collectableDescription: 'Hey, I used to play one like this back
+
+    in my college years! If only things could
+
+    be that simple now... '
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &3613232053646837791
 PrefabInstance:
@@ -98,6 +102,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e29a480a127f6d344a7fb0efcb24dd73, type: 3}
+--- !u!1 &3613232053646872255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: e29a480a127f6d344a7fb0efcb24dd73,
+    type: 3}
+  m_PrefabInstance: {fileID: 3613232053646837791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3613232053646709407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: e29a480a127f6d344a7fb0efcb24dd73,

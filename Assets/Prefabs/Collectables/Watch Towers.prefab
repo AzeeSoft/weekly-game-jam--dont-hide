@@ -139,6 +139,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Watch Tower
+  collectableDescription: 'Who would put this here? I guess the
+
+    watch tower guards must really love their
+
+    job.'
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &6921120545503838737
 PrefabInstance:

@@ -46,6 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Azee
+  collectableDescription: 'Azee? What does that mean?
+
+    Is that his name? I wonder what power
+
+    this man holds...'
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &6921120545503838737
 PrefabInstance:

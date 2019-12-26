@@ -5,6 +5,8 @@ using UnityEngine;
 public class CollectablePickUp : MonoBehaviour
 {
     public string collectableName;
+
+    [TextArea] public string collectableDescription;
     
     public Interactable interactable;
 

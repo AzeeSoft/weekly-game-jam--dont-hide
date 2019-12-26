@@ -59,6 +59,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Chikara Drawing
+  collectableDescription: 'The Gem of Chikara... it was never a blessing.
+
+    I need to destroy it soon, before these... things
+
+    bring us ruin.'
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &5099235081972453301
 PrefabInstance:
