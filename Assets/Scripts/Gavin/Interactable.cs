@@ -37,7 +37,11 @@ public class Interactable : MonoBehaviour
 
     private void OnDestroy()
     {
-        InteractableTextPopUp.Instance.textMesh.text = "";
-        InteractableTextPopUp.Instance.panel.SetActive(false);
+        if (InteractableTextPopUp.Instance && InteractableTextPopUp.Instance.textMesh &&
+            InteractableTextPopUp.Instance.panel)
+        {
+            InteractableTextPopUp.Instance.textMesh.text = "";
+            InteractableTextPopUp.Instance.panel.SetActive(false);
+        }
     }
 }

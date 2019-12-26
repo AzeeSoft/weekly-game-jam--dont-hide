@@ -16,6 +16,7 @@ public class PlayerModel : MonoBehaviour
     public float delayBeforeHealthRegeneration = 3f;
     public float healthRegenerationSpeed = 1f;
     public Transform playerTarget;
+    public float deathAnimationDuration = 3f;
 
     void Awake()
     {
@@ -24,6 +25,18 @@ public class PlayerModel : MonoBehaviour
         camouflageModeController = GetComponent<CamouflageModeController>();
         animator = GetComponentInChildren<Animator>(false);
         health = GetComponent<Health>();
+        health.OnDamageTaken.AddListener(() =>
+        {
+            if (health.currentHealth > 0)
+            {
+                animator.SetTrigger("Hit");
+            }
+        });
+        health.OnHealthDepleted.AddListener(() =>
+        {
+            animator.applyRootMotion = true;
+            animator.SetTrigger("Death");
+        });
     }
 
     // Start is called before the first frame update
