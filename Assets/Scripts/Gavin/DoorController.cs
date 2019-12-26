@@ -19,6 +19,12 @@ public class DoorController : MonoBehaviour
     void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+
+        if (levers.Length == 0)
+        {
+            closedIcon.gameObject.SetActive(false);
+        }
+
     }
 
     void Update()

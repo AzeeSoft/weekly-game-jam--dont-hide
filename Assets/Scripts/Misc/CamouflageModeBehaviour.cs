@@ -17,10 +17,13 @@ public class CamouflageModeBehaviour : MonoBehaviour
         InitRenderers();
         SaveOriginalMaterials();
 
-        GameManager.Instance.playerModel.camouflageModeController.onCamouflageModeActivated +=
-            ApplyCamouflageModeMaterial;
-        GameManager.Instance.playerModel.camouflageModeController.onCamouflageModeDeactivated +=
-            RevertToOriginalMaterials;
+        if (GameManager.Instance.playerModel)
+        {
+            GameManager.Instance.playerModel.camouflageModeController.onCamouflageModeActivated +=
+                ApplyCamouflageModeMaterial;
+            GameManager.Instance.playerModel.camouflageModeController.onCamouflageModeDeactivated +=
+                RevertToOriginalMaterials;
+        }
     }
 
     // Update is called once per frame
@@ -31,10 +34,13 @@ public class CamouflageModeBehaviour : MonoBehaviour
 
     void OnDestroy()
     {
-        GameManager.Instance.playerModel.camouflageModeController.onCamouflageModeActivated -=
-            ApplyCamouflageModeMaterial;
-        GameManager.Instance.playerModel.camouflageModeController.onCamouflageModeDeactivated -=
-            RevertToOriginalMaterials;
+        if (GameManager.Instance.playerModel)
+        {
+            GameManager.Instance.playerModel.camouflageModeController.onCamouflageModeActivated -=
+                ApplyCamouflageModeMaterial;
+            GameManager.Instance.playerModel.camouflageModeController.onCamouflageModeDeactivated -=
+                RevertToOriginalMaterials;
+        }
     }
 
     void InitRenderers()
