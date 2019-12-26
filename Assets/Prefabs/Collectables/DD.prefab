@@ -46,9 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: D.D.
-  collectableDescription: 'Ok, whoever made this has some
-
-    serious issues...'
+  collectableDescription: Ok, whoever made this has some serious issues...
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &6921120545503838737
 PrefabInstance:

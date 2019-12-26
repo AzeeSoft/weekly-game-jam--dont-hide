@@ -39,9 +39,6 @@ public class InventoryRenderer : MonoBehaviour
             instance.transform.localScale = Vector3.one;
 
             var instanceBounds = instance.transform.GetBoundsFromRenderers();
-            instance.transform.position += (instance.transform.position - instanceBounds.center);
-
-            instanceBounds = instance.transform.GetBoundsFromRenderers();
 
             var scale = new Vector3(boundsSize.x / instanceBounds.size.x, boundsSize.y / instanceBounds.size.y,
                 boundsSize.z / instanceBounds.size.z);
@@ -50,6 +47,9 @@ public class InventoryRenderer : MonoBehaviour
             scale = new Vector3(minSide, minSide, minSide);
 
             instance.transform.localScale = scale;
+
+            instanceBounds = instance.transform.GetBoundsFromRenderers();
+            instance.transform.position += (instance.transform.position - instanceBounds.center);
         }
     }
 }

@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Collectable Test
+  collectableDescription: Test
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &6921120545503838737
 PrefabInstance:

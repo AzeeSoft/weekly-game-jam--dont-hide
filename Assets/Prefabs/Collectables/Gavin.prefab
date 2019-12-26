@@ -48,9 +48,7 @@ MonoBehaviour:
   collectableName: Gavin
   collectableDescription: 'Gavin? He looks a little.. goofy.
 
-    This is certainly no one who should be
-
-    working here.'
+    This is certainly no one who should be working here.'
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &1966637439671515982
 PrefabInstance:

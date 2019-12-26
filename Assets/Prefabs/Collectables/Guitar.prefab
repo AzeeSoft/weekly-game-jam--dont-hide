@@ -59,11 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Guitar
-  collectableDescription: 'Hey, I used to play one like this back
-
-    in my college years! If only things could
-
-    be that simple now... '
+  collectableDescription: "Hey, I used to play one like this back in my college years!
+    \nIf only things could be that simple now... "
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &3613232053646837791
 PrefabInstance:

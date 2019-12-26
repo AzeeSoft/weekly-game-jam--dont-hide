@@ -46,9 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Stone Mask
-  collectableDescription: 'Something about this stone mask is
-
-    really bizarre.'
+  collectableDescription: Something about this stone mask is really bizarre.
   interactable: {fileID: 4929565401596313500}
 --- !u!65 &6688500642245044941
 BoxCollider:

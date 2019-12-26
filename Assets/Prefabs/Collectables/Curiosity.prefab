@@ -60,11 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Curiousity
-  collectableDescription: 'Is this the... Curiousity rover? No...
+  collectableDescription: 'Is this the... Curiousity rover? It can''t be...
 
-    Does this mean our world is falling apart quicker
-
-    than I thought?'
+    Does this mean our world is falling apart quicker than I thought?'
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &3345472576015448579
 PrefabInstance:

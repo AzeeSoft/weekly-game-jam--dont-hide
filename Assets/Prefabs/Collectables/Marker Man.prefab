@@ -46,11 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Marker Man
-  collectableDescription: 'Who let this man on base? I should
-
-    probably tell a guard about thi-
-
-    Oh wait, nevermind.'
+  collectableDescription: "Who let this man on base? I should probably tell a guard
+    about thi- \nOh wait, nevermind."
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &3158082960282048976
 PrefabInstance:

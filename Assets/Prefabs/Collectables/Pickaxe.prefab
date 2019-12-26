@@ -61,9 +61,8 @@ MonoBehaviour:
   collectableName: Pickaxe
   collectableDescription: 'Too bad this power doesn''t rewind time.
 
-    I would do anything to stop the natives from
-
-    discovering this curse in the first place.'
+    I would do anything to stop the natives from discovering this curse in the first
+    place.'
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &4901810439779997664
 PrefabInstance:

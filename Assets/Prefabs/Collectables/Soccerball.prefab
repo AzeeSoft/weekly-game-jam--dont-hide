@@ -46,11 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Soccerball
-  collectableDescription: 'Hey! A soccerball! I haven''t had time
-
-    to play in ages! I better take this for...
-
-    safe keeping.'
+  collectableDescription: "Hey! A soccerball! I haven't had time to play in ages!
+    \nI better take this for... safe keeping."
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &1084381696092275406
 PrefabInstance:

@@ -10,6 +10,7 @@ public class InventoryUI : MonoBehaviour
     public TextMeshProUGUI collectableListTitle;
     public Transform collectableListRoot;
     public GameObject collectableUIItemPrefab;
+    public TextMeshProUGUI descriptionText;
 
     public InventoryRenderer inventoryRenderer;
 
@@ -44,15 +45,22 @@ public class InventoryUI : MonoBehaviour
             var collectableButton = collectableUIItem.GetComponentInChildren<Button>();
             collectableButton.onClick.AddListener(() =>
             {
-                GameManager.Instance.collectablePrefabsDict.TryGetValue(collectable, out var collectablePrefab);
-                inventoryRenderer.RenderPrefab(collectablePrefab);
+                OnCollectableSelected(collectable);
             });
         }
 
         if (collectablesCollected.Count > 0)
         {
-            GameManager.Instance.collectablePrefabsDict.TryGetValue(collectablesCollected[0], out var collectablePrefab);
-            inventoryRenderer.RenderPrefab(collectablePrefab);
+            OnCollectableSelected(collectablesCollected[0]);
         }
+    }
+
+    void OnCollectableSelected(string collectable)
+    {
+        GameManager.Instance.collectablePrefabsDict.TryGetValue(collectable, out var collectablePrefab);
+        inventoryRenderer.RenderPrefab(collectablePrefab);
+
+        var collectablePickUp = collectablePrefab.GetComponent<CollectablePickUp>();
+        descriptionText.text = collectablePickUp.collectableDescription;
     }
 }
