@@ -41,6 +41,11 @@ public class CamouflageModeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerModel.isDead)
+        {
+            return;
+        }
+
         if (playerModel.playerInputController.playerInput.ToggleCamouflageMode)
         {
             ToggleCamouflage();

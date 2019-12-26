@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
 
     public bool startWithMaxHealth = true;
 
+    public UnityEvent OnDamageTaken;
     public UnityEvent OnHealthDepleted;
 
     private bool healthDepleted = false;
@@ -44,6 +45,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         UpdateHealth(-damage);
+        OnDamageTaken?.Invoke();
         timeOfLastDamage = Time.time;
     }
 }

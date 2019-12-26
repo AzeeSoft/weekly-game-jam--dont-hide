@@ -27,7 +27,7 @@ public class DemonAttackController : MonoBehaviour
     void Update()
     {
         attackLine.gameObject.SetActive(false);
-
+        
         if (demonModel.canSeePlayer && playerModel.isAlive)
         {
             float distToPlayer = Vector3.Distance(transform.position, playerModel.playerTarget.position);

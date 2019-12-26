@@ -49,4 +49,9 @@ public class PauseScreen : SingletonMonoBehaviour<PauseScreen>
     {
         ScreenFader.Instance.FadeOutAndExecute(() => { SceneManager.LoadScene("MainMenu"); });
     }
+
+    public void RestartLevel()
+    {
+        LevelManager.Instance.RestartLevel();
+    }
 }

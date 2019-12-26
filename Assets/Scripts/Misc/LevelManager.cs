@@ -20,18 +20,20 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnGameLost()
     {
-        LoseScreen.SetActive(true);
-        Time.timeScale = 0;
-        HelperUtilities.UpdateCursorLock(false);
+        this.WaitAndExecute(() =>
+        {
+            LoseScreen.SetActive(true);
+            Time.timeScale = 0;
+            HelperUtilities.UpdateCursorLock(false);
+        }, GameManager.Instance.playerModel.deathAnimationDuration);
     }
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ScreenFader.Instance.FadeOutAndExecute(() => { SceneManager.LoadScene(SceneManager.GetActiveScene().name); });
     }
 }
