@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 1006315225319809340}
   - component: {fileID: 2043174587969382059}
   - component: {fileID: 7202396657198635557}
+  - component: {fileID: 593092567920890058}
   m_Layer: 0
   m_Name: LeverPrefab
   m_TagString: Untagged
@@ -157,6 +158,20 @@ MonoBehaviour:
   interactable: {fileID: 2382237426167986510}
   activateSound: {fileID: 8300000, guid: 1978a8c782c5b5349b73bb71215d2bae, type: 3}
   isOn: 0
+--- !u!114 &593092567920890058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9062827563242655031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06ebb9e92276a141bc5715d860fa06c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialForCamouflageMode: {fileID: 2100000, guid: 2de7cfc326438d8478d4ac5921d7f9e7,
+    type: 2}
 --- !u!1001 &390405497623938243
 PrefabInstance:
   m_ObjectHideFlags: 0

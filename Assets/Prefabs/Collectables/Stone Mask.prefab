@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6335726044361927148}
   - component: {fileID: 8036635691090660427}
+  - component: {fileID: 6389539725919174125}
   m_Layer: 0
   m_Name: Stone Mask
   m_TagString: Untagged
@@ -49,6 +50,20 @@ MonoBehaviour:
   collectableDescription: Something about this stone mask is really bizarre.
   interactable: {fileID: 4929565401596313500}
   collectedSound: {fileID: 8300000, guid: 95bc6689a418205408dc5fe9660d383c, type: 3}
+--- !u!114 &6389539725919174125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6335726044361927136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06ebb9e92276a141bc5715d860fa06c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialForCamouflageMode: {fileID: 2100000, guid: 3624df96842ad9a49aeda4cf41e359eb,
+    type: 2}
 --- !u!65 &6688500642245044941
 BoxCollider:
   m_ObjectHideFlags: 0

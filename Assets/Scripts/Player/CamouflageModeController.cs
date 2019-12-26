@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Cinemachine.PostFX;
 using DG.Tweening;
@@ -20,6 +21,9 @@ public class CamouflageModeController : MonoBehaviour
     public float camouflageRadiusMultiplier = 10f;
     public PostProcessProfile camouflageModePostProcessingProfile;
     [Range(0, 1)] public float camouflageValue = 0;
+
+    public event Action onCamouflageModeActivated;
+    public event Action onCamouflageModeDeactivated;
 
     private PlayerModel playerModel;
     private List<Material> materials = new List<Material>();
@@ -68,6 +72,15 @@ public class CamouflageModeController : MonoBehaviour
         playerModel.animator.SetTrigger(isCamouflaged ? "EnableCamouflage" : "DisableCamouflage");
         SoundEffectsManager.Instance.Play(isCamouflaged ? camoOnSound : camoOffSound);
         AnimateCamouflageValue(isCamouflaged ? 1 : 0, camouflageEffectTransitionDuration, () => { });
+
+        if (isCamouflaged)
+        {
+            onCamouflageModeActivated?.Invoke();
+        }
+        else
+        {
+            onCamouflageModeDeactivated?.Invoke();
+        }
     }
 
     private void UpdateTimeOfLastCamouflage()
