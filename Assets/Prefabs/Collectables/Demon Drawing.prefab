@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Demon Drawing
+  collectableDescription: 'One of my drawings of those... things. No one
+
+    believed me. I will stop them, no matter what.'
   interactable: {fileID: 4929565401596313500}
 --- !u!65 &2246022794419350236
 BoxCollider:

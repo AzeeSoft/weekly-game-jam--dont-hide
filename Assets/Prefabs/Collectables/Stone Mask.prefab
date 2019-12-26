@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6335726044361927148}
-  - component: {fileID: 6335726044361927139}
   - component: {fileID: 8036635691090660427}
   m_Layer: 0
   m_Name: Stone Mask
@@ -34,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6335726044361927139
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6335726044361927136}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8036635691090660427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +46,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Stone Mask
+  collectableDescription: 'Something about this stone mask is
+
+    really bizarre.'
   interactable: {fileID: 4929565401596313500}
+--- !u!65 &6688500642245044941
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742522336271495843}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20930862, y: 0.27000427, z: 0.18484116}
+  m_Center: {x: 0, y: 0.000000923872, z: 0.028425604}
 --- !u!1001 &6921120545503838737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,6 +224,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2b6d96047db11c48b2e829e16ca0cce, type: 3}
+--- !u!1 &7742522336271495843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 137880, guid: b2b6d96047db11c48b2e829e16ca0cce,
+    type: 3}
+  m_PrefabInstance: {fileID: 7742522336271624251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7742522336271155361 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 469146, guid: b2b6d96047db11c48b2e829e16ca0cce,

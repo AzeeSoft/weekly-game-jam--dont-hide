@@ -246,6 +246,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableName: Radiation Sign
+  collectableDescription: 'Radiation poision, how laughable. They
+
+    must have put these signs up after I left.
+
+    If only they knew how bad things really are.'
   interactable: {fileID: 4929565401596313500}
 --- !u!1001 &6921120545503838737
 PrefabInstance:
