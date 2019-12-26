@@ -1,7 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
+[Serializable]
+public class PlayerPrefsCollectables
+{
+    public List<string> collectables;
+}
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
@@ -49,7 +56,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void SaveCollectables()
     {
-        PlayerPrefs.SetString(collectablePlayerPrefsKey, JsonUtility.ToJson(collectablesCollected.ToList()));
+        PlayerPrefsCollectables playerPrefsCollectables =
+            new PlayerPrefsCollectables {collectables = collectablesCollected.ToList()};
+
+        var json = JsonUtility.ToJson(playerPrefsCollectables);
+        print(json);
+        PlayerPrefs.SetString(collectablePlayerPrefsKey, json);
     }
 
     private void LoadCollectables()
@@ -58,8 +70,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
         if (PlayerPrefs.HasKey(collectablePlayerPrefsKey))
         {
-            var collectables = JsonUtility.FromJson<List<string>>(PlayerPrefs.GetString(collectablePlayerPrefsKey));
-            foreach (var collectable in collectables)
+            var json = PlayerPrefs.GetString(collectablePlayerPrefsKey);
+            print(json);
+            var playerPrefsCollectables = JsonUtility.FromJson<PlayerPrefsCollectables>(json);
+            foreach (var collectable in playerPrefsCollectables.collectables)
             {
                 collectablesCollected.Add(collectable);
             }
