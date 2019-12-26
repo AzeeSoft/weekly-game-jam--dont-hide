@@ -5,6 +5,7 @@ using UnityEngine;
 public class MinimapCamera : SingletonMonoBehaviour<MinimapCamera>
 {
     public Camera camera { get; private set; }
+    public Camera minimapIconCamera;
     public float followSpeed;
     //public float quickThreshold = 20f;
     public float stopThreshold = 0.1f;
@@ -14,6 +15,7 @@ public class MinimapCamera : SingletonMonoBehaviour<MinimapCamera>
         base.Awake();
 
         camera = GetComponent<Camera>();
+        minimapIconCamera.orthographicSize = camera.orthographicSize;
     }
 
     // Start is called before the first frame update
