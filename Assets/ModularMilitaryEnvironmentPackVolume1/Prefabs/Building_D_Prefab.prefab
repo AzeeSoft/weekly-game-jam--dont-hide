@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: 6400000}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Building_D$NV
   m_TagString: Collision
   m_Icon: {fileID: 0}

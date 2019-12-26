@@ -7069,10 +7069,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: containe 2 (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 103042, guid: 71f7ed2b5b87ec14d93fd8e7ebc473b0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 421786, guid: 71f7ed2b5b87ec14d93fd8e7ebc473b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.54
@@ -7116,10 +7112,6 @@ PrefabInstance:
     - target: {fileID: 421786, guid: 71f7ed2b5b87ec14d93fd8e7ebc473b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429350, guid: 71f7ed2b5b87ec14d93fd8e7ebc473b0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71f7ed2b5b87ec14d93fd8e7ebc473b0, type: 3}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: 6400000}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BuildingRoofB$NV
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 5a06d3c2b501bc94aa7bab0f104027a1, type: 3}
 --- !u!1 &100002

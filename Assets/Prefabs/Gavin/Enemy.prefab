@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ed74802463a9f4d83990ac4fe013ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeRadius: 300
+  rangeRadius: 50
   chaseRadius: 7
   viewAngle: 120
   playerMask:

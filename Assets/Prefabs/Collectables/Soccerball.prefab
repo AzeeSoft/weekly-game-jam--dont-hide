@@ -49,6 +49,7 @@ MonoBehaviour:
   collectableDescription: "Hey! A soccerball! I haven't had time to play in ages!
     \nI better take this for... safe keeping."
   interactable: {fileID: 4929565401596313500}
+  collectedSound: {fileID: 8300000, guid: 95bc6689a418205408dc5fe9660d383c, type: 3}
 --- !u!1001 &1084381696092275406
 PrefabInstance:
   m_ObjectHideFlags: 0

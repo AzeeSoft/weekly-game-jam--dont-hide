@@ -9,6 +9,7 @@ public class CollectablePickUp : MonoBehaviour
     [TextArea] public string collectableDescription;
     
     public Interactable interactable;
+    public AudioClip collectedSound;
 
     void Start()
     {
@@ -23,6 +24,8 @@ public class CollectablePickUp : MonoBehaviour
             Debug.Log(gameObject.name + " has been collected!");
             interactable.isPressed = true;
             Destroy(gameObject);
+
+            SoundEffectsManager.Instance.PlayAt(collectedSound, transform.position);
 
             GameManager.Instance.OnCollectiblePickedUp(this);
         }

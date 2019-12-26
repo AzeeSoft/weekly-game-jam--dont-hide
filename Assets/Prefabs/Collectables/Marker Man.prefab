@@ -49,6 +49,7 @@ MonoBehaviour:
   collectableDescription: "Who let this man on base? I should probably tell a guard
     about thi- \nOh wait, nevermind."
   interactable: {fileID: 4929565401596313500}
+  collectedSound: {fileID: 8300000, guid: 95bc6689a418205408dc5fe9660d383c, type: 3}
 --- !u!1001 &3158082960282048976
 PrefabInstance:
   m_ObjectHideFlags: 0

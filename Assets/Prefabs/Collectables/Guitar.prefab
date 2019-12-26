@@ -62,6 +62,7 @@ MonoBehaviour:
   collectableDescription: "Hey, I used to play one like this back in my college years!
     \nIf only things could be that simple now... "
   interactable: {fileID: 4929565401596313500}
+  collectedSound: {fileID: 8300000, guid: 95bc6689a418205408dc5fe9660d383c, type: 3}
 --- !u!1001 &3613232053646837791
 PrefabInstance:
   m_ObjectHideFlags: 0

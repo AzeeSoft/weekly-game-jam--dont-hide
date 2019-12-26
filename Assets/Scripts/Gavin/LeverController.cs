@@ -5,6 +5,7 @@ using UnityEngine;
 public class LeverController : MonoBehaviour
 {
     public Interactable interactable;
+    public AudioClip activateSound;
     public bool isOn = false;
     
     Animator animator;
@@ -28,6 +29,8 @@ public class LeverController : MonoBehaviour
 
             animator.SetTrigger("Activate");
             minimapIcon.gameObject.SetActive(false);
+
+            SoundEffectsManager.Instance.PlayAt(activateSound, transform.position);
 
             GameManager.Instance.OnLeverUsed(this);
         }

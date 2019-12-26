@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactable: {fileID: 2382237426167986510}
+  activateSound: {fileID: 8300000, guid: 1978a8c782c5b5349b73bb71215d2bae, type: 3}
   isOn: 0
 --- !u!1001 &390405497623938243
 PrefabInstance:

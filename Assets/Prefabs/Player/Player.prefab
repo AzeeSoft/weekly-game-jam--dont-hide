@@ -1033,6 +1033,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatarRoot: {fileID: 7415780798373814325}
+  camoOnSound: {fileID: 8300000, guid: 4af6eb0b06a461f41b38c57b87e1312f, type: 3}
+  camoOffSound: {fileID: 8300000, guid: b1705d1837e775548981f526bf22ef51, type: 3}
   camouflageEffectTransitionDuration: 2
   camouflageRadiusMultiplier: 50
   camouflageModePostProcessingProfile: {fileID: 11400000, guid: 4145bbe31d4691f4ea193d51ca5fc422,

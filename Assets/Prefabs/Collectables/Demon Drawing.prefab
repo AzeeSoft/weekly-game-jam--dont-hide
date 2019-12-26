@@ -49,6 +49,7 @@ MonoBehaviour:
   collectableDescription: "One of my drawings of those... things. No one believed
     me. \nI will stop them, no matter the cost."
   interactable: {fileID: 4929565401596313500}
+  collectedSound: {fileID: 8300000, guid: 95bc6689a418205408dc5fe9660d383c, type: 3}
 --- !u!65 &2246022794419350236
 BoxCollider:
   m_ObjectHideFlags: 0

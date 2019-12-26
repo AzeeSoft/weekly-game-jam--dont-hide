@@ -14,6 +14,8 @@ public class CamouflageModeController : MonoBehaviour
     public float camouflageEffectRadius => camouflageValue * camouflageRadiusMultiplier;
 
     public GameObject avatarRoot;
+    public AudioClip camoOnSound;
+    public AudioClip camoOffSound;
     public float camouflageEffectTransitionDuration = 2f;
     public float camouflageRadiusMultiplier = 10f;
     public PostProcessProfile camouflageModePostProcessingProfile;
@@ -64,6 +66,7 @@ public class CamouflageModeController : MonoBehaviour
         isCamouflaged = !isCamouflaged;
 
         playerModel.animator.SetTrigger(isCamouflaged ? "EnableCamouflage" : "DisableCamouflage");
+        SoundEffectsManager.Instance.PlayAt(isCamouflaged ? camoOnSound : camoOffSound, transform.position);
         AnimateCamouflageValue(isCamouflaged ? 1 : 0, camouflageEffectTransitionDuration, () => { });
     }
 

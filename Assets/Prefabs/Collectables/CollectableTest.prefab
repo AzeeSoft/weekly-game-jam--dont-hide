@@ -109,6 +109,7 @@ MonoBehaviour:
   collectableName: Collectable Test
   collectableDescription: Test
   interactable: {fileID: 4929565401596313500}
+  collectedSound: {fileID: 8300000, guid: 95bc6689a418205408dc5fe9660d383c, type: 3}
 --- !u!1001 &6921120545503838737
 PrefabInstance:
   m_ObjectHideFlags: 0
