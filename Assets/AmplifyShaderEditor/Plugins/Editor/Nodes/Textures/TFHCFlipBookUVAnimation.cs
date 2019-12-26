@@ -77,7 +77,7 @@ namespace AmplifyShaderEditor
 			m_selectedTextureVerticalDirection = EditorGUILayoutPopup( TextureVerticalDirectionStr, m_selectedTextureVerticalDirection, m_textureVerticalDirectionValues );
 			m_negativeSpeedBehavior = EditorGUILayoutPopup( NegativeSpeedBehaviorStr, m_negativeSpeedBehavior, m_negativeSpeedBehaviorValues );
 			EditorGUILayout.EndVertical();
-			EditorGUILayout.HelpBox( "Flipbook UV Animation:\n\n  - UV: Texture Coordinates to Flipbook.\n - Columns: number of Columns (X) of the Flipbook Texture.\n  - Rows: number of Rows (Y) of the Flipbook Textures.\n  - Speed: speed of the animation.\n - Texture Direction: set the vertical order of the texture tiles.\n - If Negative Speed: set the behavior when speed is negative.\n\n - Out: UV Coordinates.", MessageType.None );
+			EditorGUILayout.HelpBox( "Flipbook UV Animation:\n\n  - UV: Texture Coordinates to Flipbook.\n - Columns: number of Columns (X) of the Flipbook Texture.\n  - Rows: number of Rows (Y) of the Flipbook Textures.\n  - Speed: chaseSpeed of the animation.\n - Texture Direction: set the vertical order of the texture tiles.\n - If Negative Speed: set the behavior when chaseSpeed is negative.\n\n - Out: UV Coordinates.", MessageType.None );
 		}
 
 		public override void ReadFromString( ref string[] nodeParams )
@@ -145,7 +145,7 @@ namespace AmplifyShaderEditor
 			string voffsetx2 = String.Empty;
 			if ( m_negativeSpeedBehavior != 0 )
 			{
-				vcomment9 = "// Reverse X animation if speed is negative";
+				vcomment9 = "// Reverse X animation if chaseSpeed is negative";
 				voffsetx2 = "fblinearindextox" + OutputId + " = (" + speed + " > 0 ? fblinearindextox" + OutputId + " : (int)" + columns + " - fblinearindextox" + OutputId + ");";
 			}
 			string vcomment10 = "// Multiply Offset X by coloffset";
@@ -171,12 +171,12 @@ namespace AmplifyShaderEditor
 				string reverseanimationoperator = String.Empty;
 				if ( m_selectedTextureVerticalDirection == 0 )
 				{
-					vcomment12 = "// Reverse Y to get tiles from Top to Bottom and Reverse Y animation if speed is negative";
+					vcomment12 = "// Reverse Y to get tiles from Top to Bottom and Reverse Y animation if chaseSpeed is negative";
 					reverseanimationoperator = " < ";
 				}
 				else
 				{
-					vcomment12 = "// Reverse Y animation if speed is negative";
+					vcomment12 = "// Reverse Y animation if chaseSpeed is negative";
 					reverseanimationoperator = " > ";
 				}
 				voffsety2 = "fblinearindextoy" + OutputId + " = (" + speed + reverseanimationoperator + " 0 ? fblinearindextoy" + OutputId + " : (int)" + rows + " - fblinearindextoy" + OutputId + ");";

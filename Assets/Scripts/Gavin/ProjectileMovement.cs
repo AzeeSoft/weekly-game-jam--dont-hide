@@ -12,6 +12,8 @@ public class ProjectileMovement : MonoBehaviour
 
     bool isAuto = false;
 
+    private Vector3 prevPosition;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,9 +29,11 @@ public class ProjectileMovement : MonoBehaviour
         {
             isAuto = true;
         }
+
+        prevPosition = transform.position;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnObjectHit(Collider other)
     {
         if (other.isTrigger)
         {
@@ -42,6 +46,7 @@ public class ProjectileMovement : MonoBehaviour
             {
                 GameManager.Instance.playerModel.health.TakeDamage(damageValue);
             }
+
             //Debug.Log("Player hit by " + gameObject.name);
         }
 
@@ -55,15 +60,30 @@ public class ProjectileMovement : MonoBehaviour
     {
         if (isAuto && !GameManager.Instance.playerModel.isCamouflaged)
         {
-            Vector3 dirToTarget = (GameManager.Instance.playerModel.playerTarget.position - transform.position).normalized;
+            Vector3 dirToTarget = (GameManager.Instance.playerModel.playerTarget.position - transform.position)
+                .normalized;
             rb.velocity = dirToTarget * bulletSpeed;
         }
-
 
         if (Time.time - timer >= 5f)
         {
             gameObject.SetActive(false);
         }
+    }
+
+    void FixedUpdate()
+    {
+        var layerMask = HelperUtilities.GetOpaqueLayerMaskForRaycast();
+        var hits = Physics.RaycastAll(prevPosition, transform.position - prevPosition,
+            Vector3.Distance(prevPosition, transform.position),
+            layerMask, QueryTriggerInteraction.Ignore);
+
+        foreach (var hit in hits)
+        {
+            OnObjectHit(hit.collider);
+        }
+
+        prevPosition = transform.position;
     }
 
     void OnDisable()
