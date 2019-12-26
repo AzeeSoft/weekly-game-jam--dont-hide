@@ -44,5 +44,8 @@ public class DemonAttackController : MonoBehaviour
 
         attackLine.SetPosition(1, attackLine.transform.InverseTransformPoint(playerModel.playerTarget.position));
         attackLine.gameObject.SetActive(true);
+
+        DamageDirectionIndicatorManager.Instance.IndicateDamageFrom(transform,
+            DamageDirectionIndicatorManager.IndicatorType.Demon);
     }
 }
