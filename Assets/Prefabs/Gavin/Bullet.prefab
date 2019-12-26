@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 50
-  damageValue: 1
+  damageValue: 2
   autoProbability: 0.75
 --- !u!1001 &7142967667068735357
 PrefabInstance:

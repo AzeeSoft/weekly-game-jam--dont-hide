@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class DemonMovementController : MonoBehaviour
 {
-    public float speed = 4f;
+    public float chaseSpeed = 4f;
+    public float returnSpeed = 2f;
     public float rotationSpeed = 3f;
     public float optimalYDistance = 5f;
     public float optimalYDistanceThreshold = 0.5f;
@@ -37,7 +38,7 @@ public class DemonMovementController : MonoBehaviour
         }
         else
         {
-            MoveTowardsTargetPosition(originalPos);
+            MoveTowardsTargetPosition(originalPos, returnSpeed);
         }
     }
 
@@ -51,10 +52,10 @@ public class DemonMovementController : MonoBehaviour
         targetPos -= xzDir.normalized * stopDistance;
         targetPos.y += optimalYDistance;
 
-        MoveTowardsTargetPosition(targetPos);
+        MoveTowardsTargetPosition(targetPos, chaseSpeed);
     }
 
-    private void MoveTowardsTargetPosition(Vector3 targetPos)
+    private void MoveTowardsTargetPosition(Vector3 targetPos, float speed)
     {
         Vector3 moveDelta = Vector3.zero;
 

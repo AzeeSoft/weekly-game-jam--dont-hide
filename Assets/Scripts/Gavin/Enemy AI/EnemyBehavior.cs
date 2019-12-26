@@ -169,6 +169,9 @@ public class EnemyBehavior : MonoBehaviour
 
             shootTime = Time.time;
             fireTime += Time.deltaTime * 5;
+
+            DamageDirectionIndicatorManager.Instance.IndicateDamageFrom(transform,
+                DamageDirectionIndicatorManager.IndicatorType.Enemy);
         }
     }
 
