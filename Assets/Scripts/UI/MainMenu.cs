@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        PlayerPrefs.DeleteAll();
+//        PlayerPrefs.DeleteAll();
         ScreenFader.Instance.FadeOutAndExecute(() => { SceneManager.LoadScene(initialLevelName); });
     }
 

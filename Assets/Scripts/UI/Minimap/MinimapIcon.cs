@@ -35,6 +35,14 @@ public class MinimapIcon : MonoBehaviour
         }
     }
 
+    void OnDisable()
+    {
+        if (showOnEdge)
+        {
+            Minimap.Instance.RemoveFromEdgeIcons(this);
+        }
+    }
+
     void OnDestroy()
     {
         if (showOnEdge)

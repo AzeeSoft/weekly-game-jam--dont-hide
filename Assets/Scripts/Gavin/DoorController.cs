@@ -10,6 +10,9 @@ public class DoorController : MonoBehaviour
 
     [HideInInspector] public bool isOpen = false;
 
+    public MinimapIcon openIcon;
+    public MinimapIcon closedIcon;
+
     public bool advanceToNextLevel = false;
     public string nextLevel = "";
 
@@ -33,11 +36,14 @@ public class DoorController : MonoBehaviour
             }
         }
 
-        if (!isOpen)
+        if (levers.Length > 0 && !isOpen)
         {
             Debug.Log("Door has been open!");
             animator.SetTrigger("Open");
             isOpen = true;
+
+            closedIcon.gameObject.SetActive(false);
+            openIcon.gameObject.SetActive(true);
         }
     }
 

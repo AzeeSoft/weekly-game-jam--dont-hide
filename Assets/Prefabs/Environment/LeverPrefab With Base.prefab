@@ -188,7 +188,7 @@ PrefabInstance:
     - target: {fileID: 9062827563242655031, guid: dbe2519f5b02f8b4fb6e5c01eb881442,
         type: 3}
       propertyPath: m_Name
-      value: LeverPrefabWithBase
+      value: LeverPrefab With Base
       objectReference: {fileID: 0}
     - target: {fileID: 9062827563242655031, guid: dbe2519f5b02f8b4fb6e5c01eb881442,
         type: 3}
