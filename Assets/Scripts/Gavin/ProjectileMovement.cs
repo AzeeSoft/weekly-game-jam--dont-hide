@@ -8,6 +8,9 @@ public class ProjectileMovement : MonoBehaviour
     float timer;
     public float bulletSpeed;
     public float damageValue;
+    [Range(0, 1)] public float autoProbability;
+
+    bool isAuto = false;
 
     private void Awake()
     {
@@ -18,6 +21,12 @@ public class ProjectileMovement : MonoBehaviour
     {
         timer = Time.time;
         rb.velocity = transform.forward * bulletSpeed;
+
+        float rand = Random.Range(0, 1);
+        if (rand < autoProbability)
+        {
+            isAuto = true;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -29,7 +38,10 @@ public class ProjectileMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            GameManager.Instance.playerModel.health.TakeDamage(damageValue);
+            if (!GameManager.Instance.playerModel.isCamouflaged)
+            {
+                GameManager.Instance.playerModel.health.TakeDamage(damageValue);
+            }
             //Debug.Log("Player hit by " + gameObject.name);
         }
 
@@ -41,6 +53,13 @@ public class ProjectileMovement : MonoBehaviour
 
     void Update()
     {
+        if (isAuto && !GameManager.Instance.playerModel.isCamouflaged)
+        {
+            Vector3 dirToTarget = (GameManager.Instance.playerModel.playerTarget.position - transform.position).normalized;
+            rb.velocity = dirToTarget * bulletSpeed;
+        }
+
+
         if (Time.time - timer >= 5f)
         {
             gameObject.SetActive(false);
@@ -50,5 +69,6 @@ public class ProjectileMovement : MonoBehaviour
     void OnDisable()
     {
         rb.velocity = Vector3.zero;
+        isAuto = false;
     }
 }
